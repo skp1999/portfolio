@@ -3,16 +3,8 @@
  */
 
 import { Link } from "wouter";
-import { useState } from "react";
-import { ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 
 export default function CV() {
-  const [scale, setScale] = useState(1);
-
-  const zoomIn = () => setScale(prev => Math.min(prev + 0.25, 3));
-  const zoomOut = () => setScale(prev => Math.max(prev - 0.25, 0.5));
-  const resetZoom = () => setScale(1);
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
@@ -39,65 +31,20 @@ export default function CV() {
 
       {/* CV Content */}
       <main className="container py-8">
-        <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold mb-2">Curriculum Vitae</h1>
-            <p className="text-muted-foreground">
-              View or <a href={`${import.meta.env.BASE_URL}cv.pdf`} download className="text-accent hover:underline">download</a> my CV.
-            </p>
-          </div>
-          
-          {/* Zoom Controls - visible on mobile */}
-          <div className="flex items-center gap-2 sm:hidden">
-            <button 
-              onClick={zoomOut}
-              className="p-2 rounded-lg border border-border hover:bg-accent/10 transition-colors"
-              aria-label="Zoom out"
-            >
-              <ZoomOut className="w-5 h-5" />
-            </button>
-            <span className="text-sm font-medium min-w-[50px] text-center">{Math.round(scale * 100)}%</span>
-            <button 
-              onClick={zoomIn}
-              className="p-2 rounded-lg border border-border hover:bg-accent/10 transition-colors"
-              aria-label="Zoom in"
-            >
-              <ZoomIn className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={resetZoom}
-              className="p-2 rounded-lg border border-border hover:bg-accent/10 transition-colors"
-              aria-label="Reset zoom"
-            >
-              <RotateCcw className="w-5 h-5" />
-            </button>
-          </div>
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold mb-2">Curriculum Vitae</h1>
+          <p className="text-muted-foreground">
+            View or <a href={`${import.meta.env.BASE_URL}cv.pdf`} download className="text-accent hover:underline">download</a> my CV.
+          </p>
         </div>
         
-        {/* Desktop: iframe with native controls */}
-        <div className="hidden sm:block w-full h-[calc(100vh-200px)] rounded-lg border border-border overflow-hidden">
+        {/* CV iframe - fits full width, native zoom supported */}
+        <div className="w-full h-[calc(100vh-200px)] rounded-lg border border-border overflow-hidden">
           <iframe
             src={`${import.meta.env.BASE_URL}cv.pdf`}
             className="w-full h-full"
             title="Saurabh Kumar Pandey - CV"
           />
-        </div>
-
-        {/* Mobile: scrollable view with zoom */}
-        <div className="sm:hidden w-full h-[calc(100vh-280px)] rounded-lg border border-border overflow-auto">
-          <div 
-            style={{ 
-              width: `${scale * 100}%`,
-              minWidth: '100%'
-            }}
-          >
-            <iframe
-              src={`${import.meta.env.BASE_URL}cv.pdf`}
-              className="w-full border-0"
-              style={{ height: '1200px' }}
-              title="Saurabh Kumar Pandey - CV"
-            />
-          </div>
         </div>
       </main>
 

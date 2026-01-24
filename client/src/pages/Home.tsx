@@ -146,7 +146,7 @@ export default function Home() {
             <div className="md:col-span-3">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6">News</h2>
               <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
-                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+                <div className="h-full overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#888 transparent' }}>
                   {[
                     { date: "Dec 2025", title: "✈️ Attending and presenting at IJCNLP-AACL 2025 in Mumbai, India", papers: null },
                     { date: "Oct 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
@@ -237,7 +237,7 @@ export default function Home() {
         <div className="container max-w-xl">
           <div className="text-center mb-4">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">Get In Touch</h2>
-            <p className="text-muted-foreground whitespace-nowrap">Interested in collaborating or discussing research opportunities?</p>
+            <p className="text-muted-foreground sm:whitespace-nowrap">Interested in collaborating or discussing research opportunities?</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6">

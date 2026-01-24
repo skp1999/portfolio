@@ -258,6 +258,38 @@ export default function Publications() {
     return yearMatch && domainMatch && conferenceMatch;
   });
 
+  // Get available options based on current filters (cascading filters)
+  const getAvailableYears = () => {
+    const filtered = publications.filter(pub => {
+      const domainMatch = selectedDomain === "All" || pub.domain === selectedDomain;
+      const conferenceMatch = selectedConference === "All" || pub.conference === selectedConference;
+      return domainMatch && conferenceMatch;
+    });
+    return new Set(filtered.map(p => p.year));
+  };
+
+  const getAvailableDomains = () => {
+    const filtered = publications.filter(pub => {
+      const yearMatch = selectedYear === "All" || pub.year === selectedYear;
+      const conferenceMatch = selectedConference === "All" || pub.conference === selectedConference;
+      return yearMatch && conferenceMatch;
+    });
+    return new Set(filtered.map(p => p.domain));
+  };
+
+  const getAvailableConferences = () => {
+    const filtered = publications.filter(pub => {
+      const yearMatch = selectedYear === "All" || pub.year === selectedYear;
+      const domainMatch = selectedDomain === "All" || pub.domain === selectedDomain;
+      return yearMatch && domainMatch;
+    });
+    return new Set(filtered.map(p => p.conference));
+  };
+
+  const availableYears = getAvailableYears();
+  const availableDomains = getAvailableDomains();
+  const availableConferences = getAvailableConferences();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
@@ -298,7 +330,7 @@ export default function Publications() {
                       setSelectedDomain("All");
                       setSelectedConference("All");
                     }}
-                    className="px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    className="hidden sm:block px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
                     Clear filters
                   </button>
@@ -313,7 +345,14 @@ export default function Publications() {
                   }`}
                 >
                   {years.map(year => (
-                    <option key={year} value={year}>{year === "All" ? "Year" : year}</option>
+                    <option 
+                      key={year} 
+                      value={year}
+                      disabled={year !== "All" && !availableYears.has(year)}
+                      className={year !== "All" && !availableYears.has(year) ? "text-muted-foreground/50" : ""}
+                    >
+                      {year === "All" ? "Year" : year}
+                    </option>
                   ))}
                 </select>
                 <select 
@@ -326,7 +365,14 @@ export default function Publications() {
                   }`}
                 >
                   {domains.map(domain => (
-                    <option key={domain} value={domain}>{domain === "All" ? "Domain" : domain}</option>
+                    <option 
+                      key={domain} 
+                      value={domain}
+                      disabled={domain !== "All" && !availableDomains.has(domain)}
+                      className={domain !== "All" && !availableDomains.has(domain) ? "text-muted-foreground/50" : ""}
+                    >
+                      {domain === "All" ? "Domain" : domain}
+                    </option>
                   ))}
                 </select>
                 <select 
@@ -339,9 +385,29 @@ export default function Publications() {
                   }`}
                 >
                   {conferences.map(conf => (
-                    <option key={conf} value={conf}>{conf === "All" ? "Venue" : conf}</option>
+                    <option 
+                      key={conf} 
+                      value={conf}
+                      disabled={conf !== "All" && !availableConferences.has(conf)}
+                      className={conf !== "All" && !availableConferences.has(conf) ? "text-muted-foreground/50" : ""}
+                    >
+                      {conf === "All" ? "Venue" : conf}
+                    </option>
                   ))}
                 </select>
+                {/* Clear filters - shown below on mobile */}
+                {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (
+                  <button 
+                    onClick={() => {
+                      setSelectedYear("All");
+                      setSelectedDomain("All");
+                      setSelectedConference("All");
+                    }}
+                    className="sm:hidden w-full px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors text-center"
+                  >
+                    Clear filters
+                  </button>
+                )}
               </div>
             </div>
             {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (

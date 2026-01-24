@@ -7,13 +7,18 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 
 export default function Publications() {
   const [selectedYear, setSelectedYear] = useState<string>("All");
   const [selectedDomain, setSelectedDomain] = useState<string>("All");
   const [selectedConference, setSelectedConference] = useState<string>("All");
+
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const publications = [
     // 2025

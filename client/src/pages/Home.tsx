@@ -123,15 +123,15 @@ export default function Home() {
                 
                 <div className="space-y-6">
                   {[
-                    { year: "2025 - Present", role: "Senior Applied Scientist", org: "Microsoft", location: "Bengaluru, India" },
-                    { year: "2025", role: "Senior Machine Learning Engineer", org: "Quantiphi", location: "Bengaluru, India" },
-                    { year: "2024 - 2025", role: "Research Associate II", org: "MBZUAI", location: "Abu Dhabi, UAE" },
-                    { year: "2022 - 2024", role: "Associate Research Staff Member", org: "V-Labs", location: "Bengaluru, India" },
-                    { year: "2017 - 2022", role: "Integrated Dual Degree (B.Tech + M.Tech)", org: "IIT Kharagpur", location: "Kharagpur, India" },
+                    { year: "Oct 2025 - Present", role: "Senior Applied Scientist", org: "Microsoft", location: "Bengaluru, India" },
+                    { year: "Jul 2025 - Oct 2025", role: "Senior Machine Learning Engineer", org: "Quantiphi", location: "Bengaluru, India" },
+                    { year: "Jul 2024 - Jun 2025", role: "Research Associate II", org: "MBZUAI", location: "Abu Dhabi, UAE" },
+                    { year: "Jun 2022 - Jun 2024", role: "Associate Research Staff Member", org: "V-Labs", location: "Bengaluru, India" },
+                    { year: "Jul 2017 - May 2022", role: "Integrated Dual Degree (B.Tech + M.Tech)", org: "IIT Kharagpur", location: "Kharagpur, India" },
                   ].map((item, idx) => (
                     <div key={idx} className="relative pl-8">
                       {/* Timeline dot */}
-                      <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-accent border-4 border-background"></div>
+                      <div className="absolute left-0 top-0.5 w-4 h-4 rounded-full bg-accent border-4 border-background"></div>
                       <p className="text-xs font-semibold text-accent mb-1">{item.year}</p>
                       <p className="font-bold text-foreground">{item.role}</p>
                       <p className="text-sm text-muted-foreground">{item.org}</p>
@@ -148,22 +148,28 @@ export default function Home() {
               <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
                 <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
                   {[
-                    { date: "Jan 2025", title: "🚀 Joined Microsoft as Senior Applied Scientist", papers: null },
-                    { date: "Jan 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
-                    { date: "Jan 2025", title: "📄 Paper accepted at COLING 2025 (Demo):", papers: [{ name: "CULTURALLY YOURS: A Reading Assistant for Cross-Cultural Content", url: "https://aclanthology.org/2025.coling-demos.21/" }] },
-                    { date: "Apr 2025", title: "🏆 Received SAC Theme Award for Meta-Cultural Competence paper at NAACL 2025", papers: null },
-                    { date: "Dec 2024", title: "📄 3 papers accepted at NAACL 2025:", papers: [
+                    { date: "Dec 2025", title: "✈️ Attending and presenting at IJCNLP-AACL 2025 in Mumbai, India", papers: null },
+                    { date: "Oct 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
+                    { date: "Oct 2025", title: "🚀 Joined Microsoft as a Senior Applied Scientist", papers: null },
+                    { date: "Jul 2025", title: "📄 Paper accepted at Social Sim Workshop (Co-located with COLM 2025):", papers: [{ name: "All Norms and No Nuance Make LLMs Dull Cultural Simulators", url: "https://openreview.net/pdf?id=8YNId9UgaA" }] },
+                    { date: "May 2025", title: "🏆 Received SAC Theme Award for Meta-Cultural Competence paper at NAACL 2025", papers: null },
+                    { date: "Apr 2025", title: "✈️ Attending and presenting our works at NAACL 2025 in Albuquerque, USA", papers: null },
+                    { date: "Feb 2025", title: "📄 3 papers accepted at NAACL 2025:", papers: [
                       { name: "SMAB: MAB based word Sensitivity Estimation Framework", url: "https://aclanthology.org/2025.naacl-long.463/" },
                       { name: "Reading between the Lines: Can LLMs Identify Cross-Cultural Communication Gaps?", url: "https://aclanthology.org/2025.naacl-long.409/" },
                       { name: "Meta-Cultural Competence: Climbing the Right Hill of Cultural Awareness", url: "https://aclanthology.org/2025.naacl-long.408/" }
                     ]},
-                    { date: "May 2024", title: "📄 Paper accepted at LREC-COLING 2024:", papers: [{ name: "Evaluating ChatGPT against Functionality Tests for Hate Speech Detection", url: "https://aclanthology.org/2024.lrec-main.564/" }] },
-                    { date: "Mar 2024", title: "🚀 Joined MBZUAI as Research Associate II", papers: null },
+                    { date: "Jan 2025", title: "✈️ Attending and presenting COLING demo paper in Abu Dhabi, UAE", papers: null },
+                    { date: "Nov 2024", title: "📄 COLING demo paper accepted:", papers: [{ name: "CULTURALLY YOURS: A Reading Assistant for Cross-Cultural Content", url: "https://aclanthology.org/2025.coling-demos.21/" }] },
+                    { date: "Jul 2024", title: "🚀 Excited to be joining MBZUAI as a Research Associate with ", titleLink: { text: "Prof. Monojit Choudhury", url: "https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" }, papers: null },
+                    { date: "Feb 2024", title: "📄 Paper accepted at LREC-COLING 2024:", papers: [{ name: "Evaluating ChatGPT against Functionality Tests for Hate Speech Detection", url: "https://aclanthology.org/2024.lrec-main.564/" }] },
                     { date: "Jan 2024", title: "📄 Paper accepted at EACL 2024:", papers: [{ name: "Low-Resource Counterspeech Generation for Indic Languages", url: "https://aclanthology.org/2024.findings-eacl.111/" }] },
+                    { date: "Dec 2023", title: "✈️ Attending EMNLP 2023 in Singapore (my first conference attendance)", papers: null },
                     { date: "Oct 2023", title: "📄 Paper accepted at EMNLP 2023:", papers: [{ name: "CONTRASTE: Supervised Contrastive Pre-training for Aspect Sentiment Triplet Extraction", url: "https://aclanthology.org/2023.findings-emnlp.807/" }] },
-                    { date: "Feb 2023", title: "📄 Paper published in PNAS:", papers: [{ name: "On the rise of fear speech in online social media", url: "https://www.pnas.org/doi/abs/10.1073/pnas.2212270120" }] },
-                    { date: "Jul 2022", title: "🚀 Joined V-Labs as Associate Research Staff Member", papers: null },
-                    { date: "May 2022", title: "🎓 Graduated from IIT Kharagpur with Integrated Dual Degree", papers: null },
+                    { date: "Mar 2023", title: "📄 Our work on fear speech published in PNAS:", papers: [{ name: "On the rise of fear speech in online social media", url: "https://www.pnas.org/doi/abs/10.1073/pnas.2212270120" }] },
+                    { date: "Dec 2022", title: "🎓 Attending Graduation Ceremony at IIT Kharagpur", papers: null },
+                    { date: "Jun 2022", title: "🚀 Joined V-Labs as Associate Research Staff Member", papers: null },
+                    { date: "May 2022", title: "🎓 Graduated from IIT Kharagpur with Specialization in AI & Applications", papers: null },
                   ].map((news, idx, arr) => (
                     <div 
                       key={idx} 
@@ -174,6 +180,16 @@ export default function Home() {
                       <span className="text-xs font-semibold text-accent whitespace-nowrap min-w-[70px] pt-0.5">{news.date}</span>
                       <div className="text-sm text-foreground leading-relaxed">
                         {news.title}
+                        {news.titleLink && (
+                          <a 
+                            href={news.titleLink.url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-accent hover:underline font-medium"
+                          >
+                            {news.titleLink.text}
+                          </a>
+                        )}
                         {news.papers && news.papers.length === 1 && (
                           <>
                             {" "}
@@ -217,31 +233,27 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-8 sm:py-10 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section className="py-6 sm:py-8 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="container max-w-xl">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Get In Touch</h2>
-            <p className="text-muted-foreground text-lg">
-              Interested in collaborating or discussing research opportunities?
-            </p>
+          <div className="text-center mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">Get In Touch</h2>
+            <p className="text-muted-foreground whitespace-nowrap">Interested in collaborating or discussing research opportunities?</p>
           </div>
 
-          <Card className="p-6 bg-card border border-border">
-            <div className="flex flex-wrap justify-center gap-6">
-              <a href="mailto:saurabh2000.iitkgp@gmail.com" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
-                <Mail className="w-4 h-4 text-accent" />
-                Email
-              </a>
-              <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
-                <Linkedin className="w-4 h-4 text-accent" />
-                LinkedIn
-              </a>
-              <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
-                <Twitter className="w-4 h-4 text-accent" />
-                Twitter
-              </a>
-            </div>
-          </Card>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="mailto:saurabh2000.iitkgp@gmail.com" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Mail className="w-4 h-4 text-accent" />
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Linkedin className="w-4 h-4 text-accent" />
+              LinkedIn
+            </a>
+            <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Twitter className="w-4 h-4 text-accent" />
+              Twitter
+            </a>
+          </div>
         </div>
       </section>
 

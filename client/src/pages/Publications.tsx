@@ -323,6 +323,7 @@ export default function Publications() {
               
               {/* Filters */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                {/* Clear filters - desktop only (left side) */}
                 {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (
                   <button 
                     onClick={() => {
@@ -332,7 +333,7 @@ export default function Publications() {
                     }}
                     className="hidden sm:block px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
-                    Clear filters
+                    Clear
                   </button>
                 )}
                 <select 
@@ -344,16 +345,19 @@ export default function Publications() {
                       : "bg-background border-border text-foreground hover:border-accent/50"
                   }`}
                 >
-                  {years.map(year => (
-                    <option 
-                      key={year} 
-                      value={year}
-                      disabled={year !== "All" && !availableYears.has(year)}
-                      className={year !== "All" && !availableYears.has(year) ? "text-muted-foreground/50" : ""}
-                    >
-                      {year === "All" ? "Year" : year}
-                    </option>
-                  ))}
+                  {years.map(year => {
+                    const isDisabled = year !== "All" && !availableYears.has(year);
+                    return (
+                      <option 
+                        key={year} 
+                        value={year}
+                        disabled={isDisabled}
+                        style={{ backgroundColor: 'white', color: isDisabled ? '#999' : '#000' }}
+                      >
+                        {year === "All" ? "Year" : year}
+                      </option>
+                    );
+                  })}
                 </select>
                 <select 
                   value={selectedDomain} 
@@ -364,50 +368,59 @@ export default function Publications() {
                       : "bg-background border-border text-foreground hover:border-accent/50"
                   }`}
                 >
-                  {domains.map(domain => (
-                    <option 
-                      key={domain} 
-                      value={domain}
-                      disabled={domain !== "All" && !availableDomains.has(domain)}
-                      className={domain !== "All" && !availableDomains.has(domain) ? "text-muted-foreground/50" : ""}
-                    >
-                      {domain === "All" ? "Domain" : domain}
-                    </option>
-                  ))}
+                  {domains.map(domain => {
+                    const isDisabled = domain !== "All" && !availableDomains.has(domain);
+                    return (
+                      <option 
+                        key={domain} 
+                        value={domain}
+                        disabled={isDisabled}
+                        style={{ backgroundColor: 'white', color: isDisabled ? '#999' : '#000' }}
+                      >
+                        {domain === "All" ? "Domain" : domain}
+                      </option>
+                    );
+                  })}
                 </select>
-                <select 
-                  value={selectedConference} 
-                  onChange={(e) => setSelectedConference(e.target.value)}
-                  className={`px-3 py-2 text-sm rounded-lg border transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 ${
-                    selectedConference !== "All" 
-                      ? "bg-accent text-white border-accent font-medium" 
-                      : "bg-background border-border text-foreground hover:border-accent/50"
-                  }`}
-                >
-                  {conferences.map(conf => (
-                    <option 
-                      key={conf} 
-                      value={conf}
-                      disabled={conf !== "All" && !availableConferences.has(conf)}
-                      className={conf !== "All" && !availableConferences.has(conf) ? "text-muted-foreground/50" : ""}
-                    >
-                      {conf === "All" ? "Venue" : conf}
-                    </option>
-                  ))}
-                </select>
-                {/* Clear filters - shown below on mobile */}
-                {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (
-                  <button 
-                    onClick={() => {
-                      setSelectedYear("All");
-                      setSelectedDomain("All");
-                      setSelectedConference("All");
-                    }}
-                    className="sm:hidden w-full px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors text-center"
+                {/* Venue + Clear (mobile only) grouped together */}
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <select 
+                    value={selectedConference} 
+                    onChange={(e) => setSelectedConference(e.target.value)}
+                    className={`px-3 py-2 text-sm rounded-lg border transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 ${
+                      selectedConference !== "All" 
+                        ? "bg-accent text-white border-accent font-medium" 
+                        : "bg-background border-border text-foreground hover:border-accent/50"
+                    }`}
                   >
-                    Clear filters
-                  </button>
-                )}
+                    {conferences.map(conf => {
+                      const isDisabled = conf !== "All" && !availableConferences.has(conf);
+                      return (
+                        <option 
+                          key={conf} 
+                          value={conf}
+                          disabled={isDisabled}
+                          style={{ backgroundColor: 'white', color: isDisabled ? '#999' : '#000' }}
+                        >
+                          {conf === "All" ? "Venue" : conf}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  {/* Clear filters - mobile only (right of Venue) */}
+                  {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (
+                    <button 
+                      onClick={() => {
+                        setSelectedYear("All");
+                        setSelectedDomain("All");
+                        setSelectedConference("All");
+                      }}
+                      className="sm:hidden px-3 py-2 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
             {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (

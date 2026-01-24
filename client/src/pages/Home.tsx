@@ -36,7 +36,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-secondary/5">
         <div className="absolute inset-0 opacity-20">
           <img 
-            src="/images/hero-research.png" 
+            src={`${import.meta.env.BASE_URL}images/hero-research.png`}
             alt="Research visualization" 
             className="w-full h-full object-cover"
           />
@@ -50,7 +50,7 @@ export default function Home() {
               <Card className="p-6 bg-card border border-border h-full flex flex-col">
                 <div className="text-center">
                   <img 
-                    src="/images/profile.jpeg" 
+                    src={`${import.meta.env.BASE_URL}images/profile.jpeg`}
                     alt="Saurabh Kumar Pandey" 
                     className="w-36 h-36 rounded-full mx-auto mb-4 object-cover"
                   />

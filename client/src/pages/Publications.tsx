@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award } from "lucide-react";
 import { useState } from "react";
+import { Link } from "wouter";
 
 export default function Publications() {
   const [selectedYear, setSelectedYear] = useState<string>("All");
@@ -262,9 +263,9 @@ export default function Publications() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <nav className="container py-4 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img 
-              src="/images/profile.jpeg" 
+              src={`${import.meta.env.BASE_URL}images/profile.jpeg`}
               alt="Saurabh Kumar Pandey" 
               className="w-9 h-9 rounded-full object-cover"
             />
@@ -272,11 +273,11 @@ export default function Publications() {
               <p className="text-sm font-bold leading-tight">Saurabh Kumar Pandey</p>
               <p className="text-xs text-muted-foreground">Senior Applied Scientist · Microsoft</p>
             </div>
-          </a>
+          </Link>
           <div className="flex items-center gap-6">
-            <a href="/" className="text-sm hover:text-accent transition-colors">Home</a>
-            <a href="/publications" className="text-sm font-semibold text-accent">Publications</a>
-            <a href="/cv" className="text-sm hover:text-accent transition-colors">CV</a>
+            <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
+            <Link href="/publications" className="text-sm font-semibold text-accent">Publications</Link>
+            <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
           </div>
         </nav>
       </header>

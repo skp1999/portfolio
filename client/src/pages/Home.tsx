@@ -30,7 +30,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <nav className="container py-4 flex items-center justify-end">
           <div className="flex items-center gap-4 sm:gap-6">
-            <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
+            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm hover:text-accent transition-colors cursor-pointer">Home</a>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>

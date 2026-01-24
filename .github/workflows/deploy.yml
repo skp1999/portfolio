@@ -27,16 +27,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-
       - name: Install dependencies
-        run: pnpm install
+        run: npm install --legacy-peer-deps
 
       - name: Build
-        run: pnpm exec vite build
+        run: npx vite build
         env:
           GITHUB_PAGES: true
 

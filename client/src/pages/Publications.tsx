@@ -6,7 +6,20 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award } from "lucide-react";
+import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award, BookOpen, Users } from "lucide-react";
+
+// Collaborators data
+const collaborators = [
+  { name: "Prof. Animesh Mukherjee", org: "IIT Kharagpur", url: "https://cse.iitkgp.ac.in/~animeshm/" },
+  { name: "Prof. Monojit Choudhury", org: "MBZUAI", url: "https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" },
+  { name: "Prof. Pawan Goyal", org: "IIT Kharagpur", url: "https://cse.iitkgp.ac.in/~pawang/" },
+  { name: "Prof. Somak Aditya", org: "IIT Kharagpur", url: "https://adityasomak.github.io/" },
+  { name: "Sougata Saha", org: "MBZUAI", url: "https://sougata-ub.github.io/" },
+  { name: "Punyajoy Saha", org: "IIT Kharagpur", url: "https://punyajoy.github.io/" },
+  { name: "Mithun Das", org: "IIT Kharagpur", url: "https://scholar.google.com/citations?user=tebayusAAAAJ&hl=en" },
+  { name: "Rajdeep Mukherjee", org: "Amazon", url: "https://rajdeep345.github.io/" },
+  { name: "Nithish Kannen", org: "Google DeepMind", url: "https://nitkannen.github.io/" },
+];
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 
@@ -314,6 +327,7 @@ export default function Publications() {
           <div className="flex items-center gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm font-semibold text-accent">Publications</Link>
+            <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
           </div>
         </nav>
@@ -501,6 +515,28 @@ export default function Publications() {
                   </div>
                 </div>
               </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Collaborators Section */}
+        <div className="mt-12 pt-8 border-t border-border">
+          <h3 className="text-xl font-bold flex items-center gap-2 mb-4">
+            <Users className="w-5 h-5 text-accent" />
+            Collaborators
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {collaborators.map((collab, idx) => (
+              <a
+                key={idx}
+                href={collab.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-3 py-1.5 rounded-full bg-accent/5 border border-border hover:border-accent/50 hover:bg-accent/10 transition-all"
+              >
+                <span className="text-sm font-medium group-hover:text-accent transition-colors">{collab.name}</span>
+                <span className="text-xs text-muted-foreground ml-1">· {collab.org}</span>
+              </a>
             ))}
           </div>
         </div>

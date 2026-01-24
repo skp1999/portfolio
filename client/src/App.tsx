@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Publications from "./pages/Publications";
+import Blogs from "./pages/Blogs";
 import CV from "./pages/CV";
 
 // Get base path for GitHub Pages
@@ -16,6 +17,7 @@ function Routes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/publications" component={Publications} />
+      <Route path="/blogs" component={Blogs} />
       <Route path="/cv" component={CV} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

@@ -8,9 +8,19 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, BookOpen, Award, Mail, Github, Linkedin, Calendar, Twitter, MapPin } from "lucide-react";
+import { ArrowRight, BookOpen, Award, Mail, Calendar, TrendingUp, Linkedin, Twitter } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
+
+// Citation data
+const citationData = [
+  { year: '2022', citations: 1 },
+  { year: '2023', citations: 16 },
+  { year: '2024', citations: 49 },
+  { year: '2025', citations: 79 },
+  { year: '2026', citations: 4 },
+];
 
 export default function Home() {
 
@@ -22,7 +32,9 @@ export default function Home() {
           <div className="flex items-center gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
+            <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
+            <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>
         </nav>
       </header>
@@ -42,7 +54,7 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 items-stretch">
             {/* Sidebar */}
             <div className="md:col-span-1">
-              <Card className="p-6 bg-card border border-border h-full flex flex-col">
+              <Card className="p-6 bg-card border border-border">
                 <div className="text-center">
                   <img 
                     src={`${import.meta.env.BASE_URL}images/profile.jpeg`}
@@ -52,29 +64,73 @@ export default function Home() {
                   <h2 className="text-xl font-bold mb-1">Saurabh Kumar Pandey</h2>
                   <p className="text-sm text-accent font-semibold mb-1">Senior Applied Scientist</p>
                   <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:text-accent transition-colors block">Microsoft</a>
+                  <p className="text-xs text-muted-foreground">Bengaluru, India</p>
                 </div>
 
-                <div className="space-y-3 border-t border-border pt-3 mt-3">
-                  <div className="flex items-center gap-2 text-sm">
-                    <MapPin className="w-4 h-4" />
-                    Bengaluru, India
+                {/* Citation Stats */}
+                <div className="border-t border-border pt-3 -mt-1">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-sm font-semibold flex items-center gap-1">
+                      <TrendingUp className="w-4 h-4 text-accent" />
+                      Citation Stats
+                    </span>
+                    <a 
+                      href="https://scholar.google.com/citations?user=gP9uqGYAAAAJ&hl=en" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-[9px] text-muted-foreground hover:text-accent transition-colors"
+                    >
+                      Jan 2026 · Google Scholar ↗
+                    </a>
                   </div>
-                  <a href="https://scholar.google.com/citations?user=gP9uqGYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <BookOpen className="w-4 h-4" />
-                    Google Scholar
-                  </a>
-                  <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </a>
-                  <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <Twitter className="w-4 h-4" />
-                    Twitter
-                  </a>
-                  <a href="https://github.com/skp1999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
+                  <div className="flex gap-3 items-stretch">
+                    {/* Stats on left - vertical */}
+                    <div className="flex flex-col gap-1.5 min-w-[65px]">
+                      {[
+                        { label: "Citations", value: "151" },
+                        { label: "h-index", value: "6" },
+                        { label: "i10-index", value: "3" },
+                      ].map((metric, idx) => (
+                        <div key={idx} className="text-center py-1.5 px-2 rounded bg-accent/5 border border-accent/10 flex-1 flex flex-col justify-center">
+                          <p className="text-sm font-bold text-accent">{metric.value}</p>
+                          <p className="text-[8px] text-muted-foreground uppercase tracking-wide">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Chart on right */}
+                    <div className="flex-1 h-[150px] bg-gradient-to-br from-accent/5 to-transparent rounded p-1">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <BarChart data={citationData} margin={{ top: 8, right: 8, left: 5, bottom: 20 }} barCategoryGap="15%">
+                          <XAxis 
+                            dataKey="year" 
+                            axisLine={{ stroke: '#e5e7eb', strokeWidth: 1 }} 
+                            tickLine={false} 
+                            tick={{ fontSize: 8, fill: '#666' }}
+                            label={{ value: 'Year', position: 'bottom', offset: 3, fontSize: 9, fill: '#888', fontWeight: 600 }}
+                          />
+                          <YAxis 
+                            axisLine={{ stroke: '#e5e7eb', strokeWidth: 1 }} 
+                            tickLine={false} 
+                            tick={{ fontSize: 8, fill: '#666' }}
+                            width={38}
+                            tickCount={4}
+                            label={{ value: 'Citations', angle: -90, position: 'insideLeft', dx: -2, dy: 30, fontSize: 9, fill: '#888', fontWeight: 600 }}
+                          />
+                          <Tooltip 
+                            contentStyle={{ backgroundColor: 'white', border: '1px solid #0891b2', borderRadius: '6px', fontSize: '10px', padding: '4px 8px', boxShadow: '0 2px 8px rgba(8, 145, 178, 0.15)' }}
+                            cursor={{ fill: 'rgba(8, 145, 178, 0.08)' }}
+                            formatter={(value: number) => [`${value}`, 'Citations']}
+                          />
+                          <Bar dataKey="citations" radius={[3, 3, 0, 0]} barSize={14}>
+                            {citationData.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill="#0891b2" fillOpacity={entry.year === '2025' ? 1 : 0.5} />
+                            ))}
+                          </Bar>
+                        </BarChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </div>
                 </div>
               </Card>
             </div>
@@ -233,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-6 sm:py-8 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section id="contact" className="py-6 sm:py-8 bg-gradient-to-br from-primary/5 via-background to-secondary/5 scroll-mt-20">
         <div className="container max-w-xl">
           <div className="text-center mb-4">
             <h2 className="text-2xl sm:text-3xl font-bold mb-2">Get In Touch</h2>

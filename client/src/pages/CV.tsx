@@ -24,6 +24,7 @@ export default function CV() {
           <div className="flex items-center gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
+            <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
             <Link href="/cv" className="text-sm font-semibold text-accent">CV</Link>
           </div>
         </nav>

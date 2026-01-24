@@ -17,15 +17,11 @@
     <script>
       // Handle redirect from 404.html for GitHub Pages SPA
       (function() {
-        const redirect = sessionStorage.getItem('redirect');
-        if (redirect) {
-          sessionStorage.removeItem('redirect');
-          const base = '/research_portfolio';
-          // Remove base from path if present
-          let path = redirect.startsWith(base) ? redirect.slice(base.length) : redirect;
-          if (path && path !== '/') {
-            window.history.replaceState(null, '', path);
-          }
+        const params = new URLSearchParams(window.location.search);
+        const path = params.get('p');
+        if (path) {
+          // Replace URL with the original path (without query param)
+          window.history.replaceState(null, '', path);
         }
       })();
     </script>

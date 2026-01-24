@@ -5,16 +5,15 @@
     <title>Redirecting...</title>
     <script>
       // Single Page App redirect for GitHub Pages
-      // Stores the path in sessionStorage and redirects to index.html
+      // Converts path to query string and redirects to index.html
+      const base = '/research_portfolio';
       const path = window.location.pathname;
-      const search = window.location.search;
-      const hash = window.location.hash;
+      // Remove base from path
+      let route = path.startsWith(base) ? path.slice(base.length) : path;
+      if (!route || route === '/') route = '/';
       
-      // Store the full path
-      sessionStorage.setItem('redirect', path + search + hash);
-      
-      // Redirect to the base URL
-      window.location.replace('/research_portfolio/');
+      // Redirect with the route as a query parameter
+      window.location.replace(base + '/?p=' + encodeURIComponent(route));
     </script>
   </head>
   <body>

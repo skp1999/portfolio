@@ -1,0 +1,266 @@
+/**
+ * Home Page - Researcher Portfolio
+ * Design: Modern Research Lab aesthetic
+ * Color Palette: Deep navy (#0f172a) with vibrant teal (#0891b2) accents
+ * Typography: Poppins (700 for headings, 400/600 for body)
+ * Layout: Two-column with sidebar and main content
+ */
+
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ArrowRight, BookOpen, Award, Mail, Github, Linkedin, Calendar, Twitter, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Link } from "wouter";
+
+export default function Home() {
+
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation Header */}
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <nav className="container py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <div className="px-3 py-2 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center">
+              <span className="text-white font-bold text-sm">Saurabh Kumar Pandey</span>
+            </div>
+          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
+            <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
+            <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-secondary/5">
+        <div className="absolute inset-0 opacity-20">
+          <img 
+            src="/images/hero-research.png" 
+            alt="Research visualization" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
+        
+        <div className="container relative py-10 sm:py-14">
+          <div className="grid md:grid-cols-4 gap-8 items-stretch">
+            {/* Sidebar */}
+            <div className="md:col-span-1">
+              <Card className="p-6 bg-card border border-border h-full flex flex-col">
+                <div className="text-center">
+                  <img 
+                    src="/images/profile.jpeg" 
+                    alt="Saurabh Kumar Pandey" 
+                    className="w-36 h-36 rounded-full mx-auto mb-4 object-cover"
+                  />
+                  <h2 className="text-xl font-bold mb-1">Saurabh Kumar Pandey</h2>
+                  <p className="text-sm text-accent font-semibold mb-1">Senior Applied Scientist</p>
+                  <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:text-accent transition-colors block">Microsoft</a>
+                </div>
+
+                <div className="space-y-3 border-t border-border pt-3 mt-3">
+                  <div className="flex items-center gap-2 text-sm">
+                    <MapPin className="w-4 h-4" />
+                    Bengaluru, India
+                  </div>
+                  <a href="https://scholar.google.com/citations?user=gP9uqGYAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                    <BookOpen className="w-4 h-4" />
+                    Google Scholar
+                  </a>
+                  <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                  <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                    <Twitter className="w-4 h-4" />
+                    Twitter
+                  </a>
+                  <a href="https://github.com/skp1999" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </div>
+              </Card>
+            </div>
+
+            {/* Main Content */}
+            <div className="md:col-span-3">
+              <Card className="p-6 bg-card border border-border h-full">
+                <div className="text-center mb-4">
+                  <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-semibold text-accent">
+                    My Research Portfolio
+                  </span>
+                </div>
+                
+                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                  Hello! I am a Senior Applied Scientist at <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft</a>. I am working in the NLX team at Microsoft Word with <a href="https://www.linkedin.com/in/si-qing-chen-seattle/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Si-Qing Chen</a> and <a href="https://www.microsoft.com/en-us/research/people/susitara/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Sunayana Sitaram</a>. Previously, I was a Research Associate II in the <a href="https://mbzuai.ac.ae/research/department/natural-language-processing-department/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Natural Language Processing</a> Department at <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">MBZUAI</a>, where I was advised by <a href="https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Monojit Choudhury</a>, working at the intersection of Culture and LLMs.
+                </p>
+
+                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
+                  I graduated with an Integrated Dual Degree (M.Tech + B.Tech) with a focus in <a href="https://cse.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Computer Science & Engineering</a> (specialization in AI & Applications) from Indian Institute of Technology, Kharagpur. During my undergrad, I worked with <a href="https://cse.iitkgp.ac.in/~animeshm/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Animesh Mukherjee</a> and <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Pawan Goyal</a>. I am also associated with Complex Networks and Research Group (<a href="https://cnerg-iitkgp.github.io/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">CNeRG</a>).
+                </p>
+
+                <p className="text-base text-muted-foreground mb-6 leading-relaxed">
+                  Before joining MBZUAI, I was working as an Associate Research Staff Member at <a href="https://www.linkedin.com/company/vijnalabs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">V-Labs</a>, where I worked at the intersection of CV and NLP. I was involved in building end to end products for Information Extraction from Financial documents using LLMs.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link href="/publications">
+                    <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                      View Publications <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline & News Section */}
+      <section className="py-10 sm:py-14 bg-muted/30">
+        <div className="container">
+          <div className="grid md:grid-cols-5 gap-8 items-start">
+            {/* Timeline - Left Side */}
+            <div className="md:col-span-2">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">Journey</h2>
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute left-[7px] top-2 bottom-2 w-0.5 bg-border"></div>
+                
+                <div className="space-y-6">
+                  {[
+                    { year: "2025 - Present", role: "Senior Applied Scientist", org: "Microsoft", location: "Bengaluru, India" },
+                    { year: "2025", role: "Senior Machine Learning Engineer", org: "Quantiphi", location: "Bengaluru, India" },
+                    { year: "2024 - 2025", role: "Research Associate II", org: "MBZUAI", location: "Abu Dhabi, UAE" },
+                    { year: "2022 - 2024", role: "Associate Research Staff Member", org: "V-Labs", location: "Bengaluru, India" },
+                    { year: "2017 - 2022", role: "Integrated Dual Degree (B.Tech + M.Tech)", org: "IIT Kharagpur", location: "Kharagpur, India" },
+                  ].map((item, idx) => (
+                    <div key={idx} className="relative pl-8">
+                      {/* Timeline dot */}
+                      <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-accent border-4 border-background"></div>
+                      <p className="text-xs font-semibold text-accent mb-1">{item.year}</p>
+                      <p className="font-bold text-foreground">{item.role}</p>
+                      <p className="text-sm text-muted-foreground">{item.org}</p>
+                      <p className="text-xs text-muted-foreground">{item.location}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* News - Right Side */}
+            <div className="md:col-span-3">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">News</h2>
+              <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
+                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+                  {[
+                    { date: "Jan 2025", title: "🚀 Joined Microsoft as Senior Applied Scientist", papers: null },
+                    { date: "Jan 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
+                    { date: "Jan 2025", title: "📄 Paper accepted at COLING 2025 (Demo):", papers: [{ name: "CULTURALLY YOURS: A Reading Assistant for Cross-Cultural Content", url: "https://aclanthology.org/2025.coling-demos.21/" }] },
+                    { date: "Apr 2025", title: "🏆 Received SAC Theme Award for Meta-Cultural Competence paper at NAACL 2025", papers: null },
+                    { date: "Dec 2024", title: "📄 3 papers accepted at NAACL 2025:", papers: [
+                      { name: "SMAB: MAB based word Sensitivity Estimation Framework", url: "https://aclanthology.org/2025.naacl-long.463/" },
+                      { name: "Reading between the Lines: Can LLMs Identify Cross-Cultural Communication Gaps?", url: "https://aclanthology.org/2025.naacl-long.409/" },
+                      { name: "Meta-Cultural Competence: Climbing the Right Hill of Cultural Awareness", url: "https://aclanthology.org/2025.naacl-long.408/" }
+                    ]},
+                    { date: "May 2024", title: "📄 Paper accepted at LREC-COLING 2024:", papers: [{ name: "Evaluating ChatGPT against Functionality Tests for Hate Speech Detection", url: "https://aclanthology.org/2024.lrec-main.564/" }] },
+                    { date: "Mar 2024", title: "🚀 Joined MBZUAI as Research Associate II", papers: null },
+                    { date: "Jan 2024", title: "📄 Paper accepted at EACL 2024:", papers: [{ name: "Low-Resource Counterspeech Generation for Indic Languages", url: "https://aclanthology.org/2024.findings-eacl.111/" }] },
+                    { date: "Oct 2023", title: "📄 Paper accepted at EMNLP 2023:", papers: [{ name: "CONTRASTE: Supervised Contrastive Pre-training for Aspect Sentiment Triplet Extraction", url: "https://aclanthology.org/2023.findings-emnlp.807/" }] },
+                    { date: "Feb 2023", title: "📄 Paper published in PNAS:", papers: [{ name: "On the rise of fear speech in online social media", url: "https://www.pnas.org/doi/abs/10.1073/pnas.2212270120" }] },
+                    { date: "Jul 2022", title: "🚀 Joined V-Labs as Associate Research Staff Member", papers: null },
+                    { date: "May 2022", title: "🎓 Graduated from IIT Kharagpur with Integrated Dual Degree", papers: null },
+                  ].map((news, idx, arr) => (
+                    <div 
+                      key={idx} 
+                      className={`flex items-start gap-4 px-4 py-4 hover:bg-accent/10 transition-all cursor-default ${
+                        idx !== arr.length - 1 ? 'border-b border-border/50' : ''
+                      }`}
+                    >
+                      <span className="text-xs font-semibold text-accent whitespace-nowrap min-w-[70px] pt-0.5">{news.date}</span>
+                      <div className="text-sm text-foreground leading-relaxed">
+                        {news.title}
+                        {news.papers && news.papers.length === 1 && (
+                          <>
+                            {" "}
+                            <a 
+                              href={news.papers[0].url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-accent hover:underline font-medium"
+                            >
+                              {news.papers[0].name}
+                            </a>
+                          </>
+                        )}
+                        {news.papers && news.papers.length > 1 && (
+                          <ul className="mt-2 space-y-1">
+                            {news.papers.map((paper, pIdx) => (
+                              <li key={pIdx} className="flex items-start gap-2">
+                                <span className="text-accent">•</span>
+                                <a 
+                                  href={paper.url} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="text-accent hover:underline font-medium"
+                                >
+                                  {paper.name}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                {/* Fade gradient at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-card/80 to-transparent pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-8 sm:py-10 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container max-w-xl">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Get In Touch</h2>
+            <p className="text-muted-foreground text-lg">
+              Interested in collaborating or discussing research opportunities?
+            </p>
+          </div>
+
+          <Card className="p-6 bg-card border border-border">
+            <div className="flex flex-wrap justify-center gap-6">
+              <a href="mailto:saurabh2000.iitkgp@gmail.com" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+                <Mail className="w-4 h-4 text-accent" />
+                Email
+              </a>
+              <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+                <Linkedin className="w-4 h-4 text-accent" />
+                LinkedIn
+              </a>
+              <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+                <Twitter className="w-4 h-4 text-accent" />
+                Twitter
+              </a>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-background">
+        <div className="container py-6">
+          <p className="text-sm text-muted-foreground text-center">
+            © 2025 Saurabh Kumar Pandey. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+}

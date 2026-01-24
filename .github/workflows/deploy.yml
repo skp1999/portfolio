@@ -36,7 +36,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm exec vite build
         env:
           GITHUB_PAGES: true
 

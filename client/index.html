@@ -20,8 +20,10 @@
         const params = new URLSearchParams(window.location.search);
         const path = params.get('p');
         if (path) {
-          // Replace URL with the original path (without query param)
-          window.history.replaceState(null, '', path);
+          // Replace URL with the full path including base
+          const base = '/research_portfolio';
+          const fullPath = base + path;
+          window.history.replaceState(null, '', fullPath);
         }
       })();
     </script>

@@ -84,30 +84,19 @@ export default function Home() {
               <Card className="p-6 bg-card border border-border h-full">
                 <div className="text-center mb-4">
                   <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-semibold text-accent">
-                    My Research Portfolio
+                    My Research Bio
                   </span>
                 </div>
                 
-                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-                  I am a Senior Applied Scientist at <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft</a>, currently part of the NLX team within <a href="https://www.microsoft.com/en-us/microsoft-365/word" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft Word</a>. I work alongside <a href="https://www.linkedin.com/in/si-qing-chen-seattle/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Si-Qing Chen</a> and <a href="https://www.microsoft.com/en-us/research/people/susitara/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Sunayana Sitaram</a>, focusing on advancing natural language capabilities of Microsoft Word. Currently, I focus on the development and comprehensive robust benchmarks for the evaluation of Word Agent Mode for agentic reasoning, precision in document-grounded tasks, and seamless user-intent alignment.
+                <p className="text-base text-muted-foreground mb-2 leading-relaxed">
+                  Hello! I am a Senior Applied Scientist at <a href="https://www.microsoft.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft</a>, currently part of the NLX team within Microsoft Word. I work alongside <a href="https://www.linkedin.com/in/si-qing-chen-seattle/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Si-Qing Chen</a> and <a href="https://www.microsoft.com/en-us/research/people/susitara/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Sunayana Sitaram</a>, focusing on advancing natural language capabilities at Word. Currently, I focus on the development of comprehensive robust benchmarks for the evaluation of Word Agent.
                 </p>
-
-                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-                  Prior to joining Microsoft, I was a Research Associate in the <a href="https://mbzuai.ac.ae/research/department/natural-language-processing-department/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Natural Language Processing Department</a> at <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">MBZUAI</a>. Advised by <a href="https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Monojit Choudhury</a>, where my research sat at the critical intersection of Culture and Large Language Models (LLMs), exploring how linguistic nuances and cultural contexts influence model behavior and performance.
+                <p className="text-base text-muted-foreground mb-2 leading-relaxed">
+                  Prior to joining Microsoft, I was a Research Associate in the <a href="https://mbzuai.ac.ae/research/department/natural-language-processing-department/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Natural Language Processing Department</a> at <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">MBZUAI</a>. Advised by <a href="https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Monojit Choudhury</a>, my research sat at the critical intersection of Culture and LLMs. Earlier in my career, I served as a Research Staff Member at <a href="https://www.linkedin.com/company/vijnalabs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">V-Labs</a>, working at the intersection of CV and NLP. leading the development of end-to-end products leveraging LLMs for Information Extraction from financial documents.
                 </p>
-
-                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-                  Earlier in my career, I served as an Associate Research Staff Member at <a href="https://www.linkedin.com/company/vijnalabs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">V-Labs</a>, working at the cross-section of Computer Vision (CV) and NLP. There, I led the development of end-to-end products for Information Extraction from financial documents, leveraging LLMs to transform unstructured data into actionable insights.
+                <p className="text-base text-muted-foreground mb-3 leading-relaxed">
+                  I graduated with a Dual Degree (M.Tech + B.Tech), specializing in AI & Applications, from <a href="https://www.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">IIT Kharagpur</a>. During my time there, I had the privilege of working with <a href="https://cse.iitkgp.ac.in/~animeshm/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Animesh Mukherjee</a> and <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Pawan Goyal</a>. I also remain closely associated with <a href="https://cnerg-iitkgp.github.io/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">CNeRG</a>.
                 </p>
-
-                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
-                  I graduated with an Integrated Dual Degree (M.Tech + B.Tech) in <a href="https://cse.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Computer Science & Engineering</a>, specializing in AI & Applications, from <a href="https://www.iitkgp.ac.in/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Indian Institute of Technology (IIT), Kharagpur</a>.
-                </p>
-
-                <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-                  During my time at IIT Kharagpur, I had the privilege of working with <a href="https://cse.iitkgp.ac.in/~animeshm/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Animesh Mukherjee</a> and <a href="https://cse.iitkgp.ac.in/~pawang/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Pawan Goyal</a>. I also remain closely associated with the Complex Networks and Research Group (<a href="https://cnerg-iitkgp.github.io/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">CNeRG</a>), where I explored large-scale data dynamics and network science.
-                </p>
-                
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link href="/publications">
                     <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">

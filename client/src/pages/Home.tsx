@@ -18,13 +18,8 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <nav className="container py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <div className="px-3 py-2 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-sm">Saurabh Kumar Pandey</span>
-            </div>
-          </Link>
-          <div className="flex items-center gap-6">
+        <nav className="container py-4 flex items-center justify-end">
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>

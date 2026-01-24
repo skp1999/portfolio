@@ -14,14 +14,14 @@ export default function CV() {
             <img 
               src={`${import.meta.env.BASE_URL}images/profile.jpeg`}
               alt="Saurabh Kumar Pandey" 
-              className="w-9 h-9 rounded-full object-cover"
+              className="w-9 h-9 rounded-full object-cover hidden sm:block"
             />
             <div className="hidden sm:block">
               <p className="text-sm font-bold leading-tight">Saurabh Kumar Pandey</p>
               <p className="text-xs text-muted-foreground">Senior Applied Scientist · Microsoft</p>
             </div>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/cv" className="text-sm font-semibold text-accent">CV</Link>

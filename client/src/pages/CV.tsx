@@ -83,16 +83,18 @@ export default function CV() {
           />
         </div>
 
-        {/* Mobile: scrollable image-based view with zoom */}
-        <div className="sm:hidden w-full h-[calc(100vh-280px)] rounded-lg border border-border overflow-auto bg-muted/30">
+        {/* Mobile: scrollable view with zoom */}
+        <div className="sm:hidden w-full h-[calc(100vh-280px)] rounded-lg border border-border overflow-auto">
           <div 
-            className="min-w-full transition-transform duration-200 origin-top-left"
-            style={{ transform: `scale(${scale})`, width: scale > 1 ? `${100 / scale}%` : '100%' }}
+            style={{ 
+              width: `${scale * 100}%`,
+              minWidth: '100%'
+            }}
           >
             <iframe
               src={`${import.meta.env.BASE_URL}cv.pdf`}
-              className="w-full"
-              style={{ height: `${100 / scale}vh`, minHeight: '800px' }}
+              className="w-full border-0"
+              style={{ height: '1200px' }}
               title="Saurabh Kumar Pandey - CV"
             />
           </div>

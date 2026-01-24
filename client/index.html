@@ -14,6 +14,21 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      // Handle redirect from 404.html for GitHub Pages SPA
+      (function() {
+        const redirect = sessionStorage.getItem('redirect');
+        if (redirect) {
+          sessionStorage.removeItem('redirect');
+          const base = '/research_portfolio';
+          // Remove base from path if present
+          let path = redirect.startsWith(base) ? redirect.slice(base.length) : redirect;
+          if (path && path !== '/') {
+            window.history.replaceState(null, '', path);
+          }
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script
       defer

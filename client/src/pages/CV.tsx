@@ -14,7 +14,7 @@ export default function CV() {
             <img 
               src={`${import.meta.env.BASE_URL}images/profile.jpeg`}
               alt="Saurabh Kumar Pandey" 
-              className="w-9 h-9 rounded-full object-cover hidden sm:block"
+              className="w-9 h-9 rounded-full object-cover"
             />
             <div className="hidden sm:block">
               <p className="text-sm font-bold leading-tight">Saurabh Kumar Pandey</p>

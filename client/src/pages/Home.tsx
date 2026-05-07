@@ -150,6 +150,8 @@ export default function Home() {
               <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
                 <div className="h-full overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#888 transparent' }}>
                   {[
+                    { date: "May 2026", title: "📄 Paper accepted at ICML 2026:", papers: [{ name: "Measuring Meta-Cultural Competency: A Spectral Framework for LLM Knowledge Structures" }] },
+                    { date: "May 2026", title: "📄 Paper accepted at C3NLP@ACL 2026:", papers: [{ name: "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions" }] },
                     { date: "Dec 2025", title: "✈️ Attending and presenting at IJCNLP-AACL 2025 in Mumbai, India", papers: null },
                     { date: "Oct 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
                     { date: "Oct 2025", title: "🚀 Joined Microsoft as a Senior Applied Scientist", papers: null },
@@ -195,14 +197,18 @@ export default function Home() {
                         {news.papers && news.papers.length === 1 && (
                           <>
                             {" "}
-                            <a 
-                              href={news.papers[0].url} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="text-accent hover:underline font-medium"
-                            >
-                              {news.papers[0].name}
-                            </a>
+                            {news.papers[0].url ? (
+                              <a 
+                                href={news.papers[0].url} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-accent hover:underline font-semibold"
+                              >
+                                {news.papers[0].name}
+                              </a>
+                            ) : (
+                              <span className="font-semibold">{news.papers[0].name}</span>
+                            )}
                           </>
                         )}
                         {news.papers && news.papers.length > 1 && (
@@ -210,14 +216,18 @@ export default function Home() {
                             {news.papers.map((paper, pIdx) => (
                               <li key={pIdx} className="flex items-start gap-2">
                                 <span className="text-accent">•</span>
-                                <a 
-                                  href={paper.url} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="text-accent hover:underline font-medium"
-                                >
-                                  {paper.name}
-                                </a>
+                                {paper.url ? (
+                                  <a 
+                                    href={paper.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="text-accent hover:underline font-semibold"
+                                  >
+                                    {paper.name}
+                                  </a>
+                                ) : (
+                                  <span className="font-semibold">{paper.name}</span>
+                                )}
                               </li>
                             ))}
                           </ul>

@@ -6,20 +6,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award, BookOpen, Users, Mail, Linkedin, Twitter } from "lucide-react";
-
-// Collaborators data
-const collaborators = [
-  { name: "Prof. Animesh Mukherjee", org: "IIT Kharagpur", url: "https://cse.iitkgp.ac.in/~animeshm/" },
-  { name: "Prof. Monojit Choudhury", org: "MBZUAI", url: "https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" },
-  { name: "Prof. Pawan Goyal", org: "IIT Kharagpur", url: "https://cse.iitkgp.ac.in/~pawang/" },
-  { name: "Prof. Somak Aditya", org: "IIT Kharagpur", url: "https://adityasomak.github.io/" },
-  { name: "Sougata Saha", url: "https://sougata-ub.github.io/" },
-  { name: "Punyajoy Saha", url: "https://punyajoy.github.io/" },
-  { name: "Mithun Das", url: "https://scholar.google.com/citations?user=tebayusAAAAJ&hl=en" },
-  { name: "Rajdeep Mukherjee", url: "https://rajdeep345.github.io/" },
-  { name: "Nithish Kannen", url: "https://nitkannen.github.io/" },
-];
+import { ExternalLink, Github, FileText, Quote, Presentation, Image, Filter, Award, BookOpen, Mail, Linkedin, Twitter } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
 
@@ -34,12 +21,82 @@ export default function Publications() {
   }, []);
 
   const publications = [
+    // 2026
+    {
+      id: "pub2026-fbhm",
+      title: "FBHM: Functional Benchmarking and Steering of VLMs for Hateful Meme Detection",
+      authors: "Paramananda Bhaskar, Naquee Rizwan, Daksh Jogchand, Saurabh Kumar Pandey, Animesh Mukherjee",
+      venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP 2026)",
+      venueUrl: "https://2026.emnlp.org/",
+      date: "2026",
+      year: "2026",
+      domain: "Content Moderation",
+      conference: "EMNLP",
+      paperUrl: "https://arxiv.org/pdf/2605.31349",
+      codeUrl: "#",
+      arxivUrl: "https://arxiv.org/abs/2605.31349",
+      posterUrl: "#",
+      slidesUrl: "#",
+      citationUrl: "https://arxiv.org/abs/2605.31349",
+      citation: `@article{bhaskar-etal-2026-fbhm,
+    title = "{FBHM}: Functional Benchmarking and Steering of {VLM}s for Hateful Meme Detection",
+    author = "Bhaskar, Paramananda and Rizwan, Naquee and Jogchand, Daksh and Pandey, Saurabh Kumar and Mukherjee, Animesh",
+    journal = "arXiv preprint arXiv:2605.31349",
+    year = "2026"
+}`
+    },
+    {
+      id: "pub2026-meta-cultural-spectral",
+      title: "Measuring Meta-Cultural Competency: A Spectral Framework for LLM Knowledge Structures",
+      authors: "Sougata Saha, Madhur Jindal, Saurabh Kumar Pandey, Mahardika Krisna Ihsani, Alham Fikri Aji, Monojit Choudhury",
+      venue: "International Conference on Machine Learning (ICML 2026)",
+      venueUrl: "https://icml.cc/Conferences/2026",
+      date: "2026",
+      year: "2026",
+      domain: "Culture & LLMs",
+      conference: "ICML",
+      paperUrl: "https://openreview.net/pdf?id=3UHHW9Gzi7",
+      codeUrl: "#",
+      arxivUrl: "#",
+      posterUrl: "#",
+      slidesUrl: "#",
+      citationUrl: "https://openreview.net/forum?id=3UHHW9Gzi7",
+      citation: `@inproceedings{saha-etal-2026-measuring,
+    title = "Measuring Meta-Cultural Competency: A Spectral Framework for {LLM} Knowledge Structures",
+    author = "Saha, Sougata and Jindal, Madhur and Pandey, Saurabh Kumar and Ihsani, Mahardika Krisna and Aji, Alham Fikri and Choudhury, Monojit",
+    booktitle = "Proceedings of the 43rd International Conference on Machine Learning",
+    year = "2026"
+}`
+    },
+    {
+      id: "pub2026-c3nlp-16",
+      title: "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions",
+      authors: "Saurabh Kumar Pandey, Harshit Gupta, Sougata Saha, Monojit Choudhury",
+      venue: "Workshop on Cross-Cultural Considerations in NLP (C3NLP at ACL 2026)",
+      venueUrl: "https://aclanthology.org/volumes/2026.c3nlp-1/",
+      date: "2026",
+      year: "2026",
+      domain: "Culture & LLMs",
+      conference: "Workshops",
+      award: "Outstanding Paper Award",
+      paperUrl: "https://aclanthology.org/2026.c3nlp-1.16/",
+      codeUrl: "#",
+      arxivUrl: "#",
+      posterUrl: "#",
+      slidesUrl: "#",
+      citation: `@inproceedings{pandey-etal-2026-beyond,
+    title = "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions",
+    author = "Pandey, Saurabh Kumar and Gupta, Harshit and Saha, Sougata and Choudhury, Monojit",
+    booktitle = "Proceedings of the 4th Workshop on Cross-Cultural Considerations in NLP (C3NLP 2026)",
+    year = "2026"
+}`
+    },
     // 2025
     {
       id: "pub001",
       title: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs",
       authors: "Saurabh Kumar Pandey, Sougata Saha, Monojit Choudhury",
-      venue: "IJCNLP-AACL",
+      venue: "International Joint Conference on Natural Language Processing and Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics (IJCNLP-AACL 2025)",
       venueUrl: "https://2025.aaclnet.org/",
       date: "2025",
       year: "2025",
@@ -61,7 +118,7 @@ export default function Publications() {
       id: "pub002",
       title: "SMAB: MAB based word Sensitivity Estimation Framework and its Applications in Adversarial Text Generation",
       authors: "Saurabh Kumar Pandey, Sachin Vashistha, Debrup Das, Somak Aditya, Monojit Choudhury",
-      venue: "NAACL",
+      venue: "Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL 2025)",
       venueUrl: "https://2025.naacl.org/",
       date: "2025",
       year: "2025",
@@ -83,7 +140,7 @@ export default function Publications() {
       id: "pub003",
       title: "Reading between the Lines: Can LLMs Identify Cross-Cultural Communication Gaps?",
       authors: "Sougata Saha, Saurabh Kumar Pandey, Harshit Gupta, Monojit Choudhury",
-      venue: "NAACL",
+      venue: "Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL 2025)",
       venueUrl: "https://2025.naacl.org/",
       date: "2025",
       year: "2025",
@@ -105,7 +162,7 @@ export default function Publications() {
       id: "pub004",
       title: "Meta-Cultural Competence: Climbing the Right Hill of Cultural Awareness",
       authors: "Sougata Saha, Saurabh Kumar Pandey, Monojit Choudhury",
-      venue: "NAACL",
+      venue: "Annual Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics (NAACL 2025)",
       venueUrl: "https://2025.naacl.org/",
       date: "2025",
       year: "2025",
@@ -128,7 +185,7 @@ export default function Publications() {
       id: "pub005",
       title: "CULTURALLY YOURS: A Reading Assistant for Cross-Cultural Content",
       authors: "Saurabh Kumar Pandey, Harshit Budhiraja, Sougata Saha, Monojit Choudhury",
-      venue: "COLING",
+      venue: "International Conference on Computational Linguistics: System Demonstrations (COLING 2025)",
       venueUrl: "https://coling2025.org/",
       date: "2025",
       year: "2025",
@@ -150,8 +207,8 @@ export default function Publications() {
       id: "pub006",
       title: "All Norms and No Nuance Make LLMs Dull Cultural Simulators",
       authors: "Saurabh Kumar Pandey, Sougata Saha, Monojit Choudhury",
-      venue: "First Workshop on Social Simulation with LLMs",
-      venueUrl: "https://sites.google.com/view/social-sims-with-llms/home",
+      venue: "Workshop on Social Simulation with LLMs",
+      venueUrl: "https://sites.google.com/view/social-sims-with-llms/social-sim25?authuser=0",
       date: "2025",
       year: "2025",
       domain: "Culture & LLMs",
@@ -174,7 +231,7 @@ export default function Publications() {
       id: "pub007",
       title: "Evaluating ChatGPT against Functionality Tests for Hate Speech Detection",
       authors: "Mithun Das, Saurabh Kumar Pandey, Animesh Mukherjee",
-      venue: "LREC-COLING",
+      venue: "Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
       venueUrl: "https://lrec-coling-2024.org/",
       date: "2024",
       year: "2024",
@@ -196,7 +253,7 @@ export default function Publications() {
       id: "pub008",
       title: "Low-Resource Counterspeech Generation for Indic Languages: The Case of Bengali and Hindi",
       authors: "Mithun Das, Saurabh Kumar Pandey, Somnath Sethi, Punyajoy Saha, Animesh Mukherjee",
-      venue: "EACL",
+      venue: "Conference of the European Chapter of the Association for Computational Linguistics (EACL 2024)",
       venueUrl: "https://2024.eacl.org/",
       date: "2024",
       year: "2024",
@@ -219,7 +276,7 @@ export default function Publications() {
       id: "pub009",
       title: "CONTRASTE: Supervised Contrastive Pre-training With Aspect-based Prompts For Aspect Sentiment Triplet Extraction",
       authors: "Rajdeep Mukherjee, Nithish Kannen, Saurabh Kumar Pandey, Pawan Goyal",
-      venue: "EMNLP",
+      venue: "Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)",
       venueUrl: "https://2023.emnlp.org/",
       date: "2023",
       year: "2023",
@@ -275,6 +332,8 @@ export default function Publications() {
     const conferenceMatch = selectedConference === "All" || pub.conference === selectedConference;
     return yearMatch && domainMatch && conferenceMatch;
   });
+  const filteredYears = Array.from(new Set(filteredPublications.map(pub => pub.year)))
+    .sort((firstYear, secondYear) => Number(secondYear) - Number(firstYear));
 
   // Get available options based on current filters (cascading filters)
   const getAvailableYears = () => {
@@ -307,16 +366,30 @@ export default function Publications() {
   const availableYears = getAvailableYears();
   const availableDomains = getAvailableDomains();
   const availableConferences = getAvailableConferences();
+  const distinctCollaborators = new Set(
+    publications
+      .flatMap(publication => publication.authors.split(", "))
+      .filter(author => author !== "Saurabh Kumar Pandey")
+  ).size;
+  const publicationStats = [
+    { value: publications.length, label: "Peer-reviewed Papers" },
+    { value: "190+", label: "Citations" },
+    { value: new Set(publications.map(publication => publication.conference)).size, label: "Venues" },
+    { value: new Set(publications.map(publication => publication.domain)).size, label: "Research Areas" },
+    { value: publications.filter(publication => "award" in publication && publication.award).length, label: "Awards" },
+    { value: `${Math.floor(distinctCollaborators / 10) * 10}+`, label: "Collaborators" },
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <nav className="container py-4 flex items-center justify-end">
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm font-semibold text-accent">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
+            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Travel</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
             <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>
@@ -432,6 +505,17 @@ export default function Publications() {
                 </div>
               </div>
             </div>
+            <div className="grid grid-cols-2 sm:grid-cols-6 mt-7 border-y border-foreground/25">
+              {publicationStats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`py-4 text-center ${index % 2 !== 0 ? "border-l border-foreground/25" : ""} ${index > 1 ? "border-t border-foreground/25 sm:border-t-0" : ""} ${index > 0 ? "sm:border-l sm:border-foreground/25" : ""}`}
+                >
+                  <p className="text-2xl sm:text-3xl font-bold text-accent">{stat.value}</p>
+                  <p className="mt-1 text-xs sm:text-sm font-medium text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
             {(selectedYear !== "All" || selectedDomain !== "All" || selectedConference !== "All") && (
               <p className="mt-4 text-sm text-muted-foreground">
                 {filteredPublications.length} result{filteredPublications.length !== 1 ? "s" : ""}
@@ -440,14 +524,24 @@ export default function Publications() {
           </div>
 
           {/* Publications List */}
-          <div className="space-y-4">
-            {filteredPublications.map((pub) => (
-              <Card key={pub.id} className="p-4 bg-card border border-border hover:border-accent/30 transition-colors">
+          <div className="space-y-10">
+            {filteredYears.map((year) => (
+              <section key={year} aria-labelledby={`publications-${year}`}>
+                <div className="flex items-center gap-4 mb-5">
+                  <span className="h-px flex-1 bg-border/60" aria-hidden="true" />
+                  <h2 id={`publications-${year}`} className="text-2xl sm:text-3xl font-bold text-foreground">
+                    {year}
+                  </h2>
+                  <span className="h-px flex-1 bg-border/60" aria-hidden="true" />
+                </div>
+                <div className="space-y-4">
+                  {filteredPublications.filter(pub => pub.year === year).map((pub) => (
+                    <Card key={pub.id} className="p-4 bg-card border border-border hover:border-accent/30 transition-colors">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
-                    <h2 className="text-xl sm:text-2xl font-bold mb-2 text-foreground leading-tight">
+                    <h3 className="text-xl sm:text-2xl font-bold mb-2 text-foreground leading-tight">
                       {pub.title}
-                    </h2>
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {pub.authors}
                     </p>
@@ -456,7 +550,7 @@ export default function Publications() {
                         <a href={pub.venueUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent hover:underline">{pub.venue}</a>
                       ) : (
                         <span className="font-semibold">{pub.venue}</span>
-                      )} ({pub.date})
+                      )}
                     </p>
                     {pub.award && (
                       <div className="flex items-center gap-1.5 mt-2">
@@ -504,32 +598,14 @@ export default function Publications() {
                     )}
                   </div>
                 </div>
-              </Card>
+                    </Card>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </div>
 
-        {/* Collaborators Section */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <h3 className="text-xl font-bold flex items-center gap-2 mb-4">
-            <Users className="w-5 h-5 text-accent" />
-            Collaborators
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {collaborators.map((collab, idx) => (
-              <a
-                key={idx}
-                href={collab.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-3 py-1.5 rounded-full bg-accent/5 border border-border hover:border-accent/50 hover:bg-accent/10 transition-all"
-              >
-                <span className="text-sm font-medium group-hover:text-accent transition-colors">{collab.name}</span>
-                {collab.org && <span className="text-xs text-muted-foreground ml-1">· {collab.org}</span>}
-              </a>
-            ))}
-          </div>
-        </div>
       </main>
 
       {/* Contact Section */}

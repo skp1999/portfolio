@@ -139,6 +139,45 @@
 }
 
 @layer components {
+  .travel-map .leaflet-tile-pane {
+    opacity: 0.92;
+  }
+
+  .travel-map.leaflet-container {
+    background: linear-gradient(180deg, #eaf3f8 0%, #dfeaf1 100%) !important;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .travel-map .travel-airport-label {
+    border: 0;
+    background: color-mix(in oklch, var(--card) 92%, transparent);
+    color: var(--foreground);
+    box-shadow: 0 1px 5px color-mix(in oklch, var(--foreground) 14%, transparent);
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 5px;
+  }
+
+  .travel-map .travel-airport-label::before {
+    display: none;
+  }
+
+  .travel-map .travel-route-label {
+    border: 0;
+    background: var(--foreground);
+    color: var(--background);
+    box-shadow: 0 2px 8px color-mix(in oklch, var(--foreground) 18%, transparent);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 8px;
+  }
+
+  .travel-map .travel-route-label::before {
+    display: none;
+  }
+
   /**
    * Custom container utility that centers content and adds responsive padding.
    *

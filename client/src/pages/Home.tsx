@@ -12,6 +12,33 @@ import { ArrowRight, BookOpen, Award, Mail, Calendar, Linkedin, Twitter, Github,
 import { useState } from "react";
 import { Link } from "wouter";
 
+const renderNewsTitle = (title: string) => {
+  const isMicrosoftJoining = title.includes("Joined Microsoft as a Senior Applied Scientist");
+  const emphasizedText = isMicrosoftJoining
+    ? /(Outstanding Paper Award|SAC Theme Award|Microsoft|Senior Applied Scientist)/
+    : /(Outstanding Paper Award|SAC Theme Award)/;
+
+  return title.split(emphasizedText).map((part, partIdx) => {
+    if (isMicrosoftJoining && part === "Microsoft") {
+      return (
+        <span key={partIdx} className="inline-flex items-center gap-1 align-middle">
+          <strong>{part}</strong>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            alt=""
+            aria-hidden="true"
+            className="h-3.5 w-3.5"
+          />
+        </span>
+      );
+    }
+
+    return part === "Outstanding Paper Award" || part === "SAC Theme Award" || (isMicrosoftJoining && part === "Senior Applied Scientist")
+      ? <strong key={partIdx}>{part}</strong>
+      : part;
+  });
+};
+
 export default function Home() {
 
   return (
@@ -19,10 +46,11 @@ export default function Home() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <nav className="container py-4 flex items-center justify-end">
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
             <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm hover:text-accent transition-colors cursor-pointer">Home</a>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
+            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Travel</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
             <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>
@@ -86,12 +114,12 @@ export default function Home() {
               <Card className="p-6 bg-card border border-border h-full">
                 <div className="text-center mb-4">
                   <span className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-semibold text-accent">
-                    My Research Bio
+                    All About Me
                   </span>
                 </div>
                 
                 <p className="text-base text-muted-foreground mb-2 leading-relaxed">
-                  Hello! I am a Senior Applied Scientist at <a href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft</a>, currently part of the NLX team within Microsoft Word. I work alongside <a href="https://www.linkedin.com/in/si-qing-chen-seattle/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Si-Qing Chen</a> and <a href="https://www.microsoft.com/en-us/research/people/susitara/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Sunayana Sitaram</a>, focusing on advancing natural language capabilities at Word. Currently, I focus on the development of comprehensive robust benchmarks for the evaluation of Word Agent.
+                  Hello! I am a Senior Applied Scientist at <a href="https://www.linkedin.com/company/microsoft/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Microsoft</a>, currently part of the NLX team within Microsoft Word. I am privileged to work alongside renowned and leading researchers like <a href="https://www.linkedin.com/in/si-qing-chen-seattle/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Si-Qing Chen</a>, <a href="https://www.linkedin.com/in/jcogley/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_people%3BX2xDeIwlTHSdIKNJ683IUQ%3D%3D" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">James Cogley</a>, and <a href="https://uk.linkedin.com/in/carina-suzana-negreanu" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Carina Negreanu</a>, focusing on advancing natural language capabilities at Word.
                 </p>
                 <p className="text-base text-muted-foreground mb-2 leading-relaxed">
                   Prior to joining Microsoft, I was a Research Associate in the <a href="https://mbzuai.ac.ae/research/department/natural-language-processing-department/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Natural Language Processing Department</a> at <a href="https://mbzuai.ac.ae/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">MBZUAI</a>. Advised by <a href="https://mbzuai.ac.ae/study/faculty/monojit-choudhury/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Prof. Monojit Choudhury</a>, my research sat at the critical intersection of Culture and LLMs. Earlier in my career, I served as a Research Staff Member at <a href="https://www.linkedin.com/company/vijnalabs/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">V-Labs</a>, working at the intersection of CV and NLP. leading the development of end-to-end products leveraging LLMs for Information Extraction from financial documents.
@@ -150,8 +178,14 @@ export default function Home() {
               <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
                 <div className="h-full overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#888 transparent' }}>
                   {[
-                    { date: "May 2026", title: "📄 Paper accepted at ICML 2026:", papers: [{ name: "Measuring Meta-Cultural Competency: A Spectral Framework for LLM Knowledge Structures" }] },
-                    { date: "May 2026", title: "📄 Paper accepted at C3NLP@ACL 2026:", papers: [{ name: "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions" }] },
+                    { date: "Aug 2026", title: "📄 Paper accepted at EMNLP 2026:", papers: [{ name: "FBHM: Functional Benchmarking and Steering of VLMs for Hateful Meme Detection", url: "https://arxiv.org/abs/2605.31349" }] },
+                    { date: "Jul 2026", title: "✈️ Visiting Microsoft Redmond HQ for a business trip", papers: null },
+                    { date: "Jul 2026", title: "🏆 Received Outstanding Paper Award for our paper at C3NLP@ACL 2026", papers: null },
+                    { date: "Jul 2026", title: "📄 Presenting our paper at C3NLP:", papers: [{ name: "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions", url: "https://aclanthology.org/2026.c3nlp-1.16/" }] },
+                    { date: "Jul 2026", title: "✈️ Attending and presenting at ACL 2026", papers: null },
+    
+                    { date: "May 2026", title: "📄 Paper accepted at ICML 2026:", papers: [{ name: "Measuring Meta-Cultural Competency: A Spectral Framework for LLM Knowledge Structures", url: "https://openreview.net/pdf?id=3UHHW9Gzi7" }] },
+                    { date: "May 2026", title: "📄 Paper accepted at C3NLP@ACL 2026:", papers: [{ name: "Beyond Monolithic Culture: Evaluating Understandability of Online Text Across Cultural Dimensions", url: "https://aclanthology.org/2026.c3nlp-1.16/" }] },
                     { date: "Dec 2025", title: "✈️ Attending and presenting at IJCNLP-AACL 2025 in Mumbai, India", papers: null },
                     { date: "Oct 2025", title: "📄 Paper accepted at IJCNLP-AACL 2025:", papers: [{ name: "To Generate or Discriminate? Methodological Considerations for Measuring Cultural Alignment in LLMs", url: "https://aclanthology.org/2025.findings-ijcnlp.95/" }] },
                     { date: "Oct 2025", title: "🚀 Joined Microsoft as a Senior Applied Scientist", papers: null },
@@ -183,7 +217,7 @@ export default function Home() {
                     >
                       <span className="text-xs font-semibold text-accent whitespace-nowrap min-w-[70px] pt-0.5">{news.date}</span>
                       <div className="text-sm text-foreground leading-relaxed">
-                        {news.title}
+                        {renderNewsTitle(news.title)}
                         {news.titleLink && (
                           <a 
                             href={news.titleLink.url} 

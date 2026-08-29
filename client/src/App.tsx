@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Publications from "./pages/Publications";
 import Blogs from "./pages/Blogs";
 import CV from "./pages/CV";
+import Travel from "./pages/Travel";
 
 // Get base path for GitHub Pages
 const base = import.meta.env.BASE_URL || "/";
@@ -18,6 +19,7 @@ function Routes() {
       <Route path="/" component={Home} />
       <Route path="/publications" component={Publications} />
       <Route path="/blogs" component={Blogs} />
+      <Route path="/travel" component={Travel} />
       <Route path="/cv" component={CV} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}

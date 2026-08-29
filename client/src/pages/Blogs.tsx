@@ -11,10 +11,11 @@ export default function Blogs() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <nav className="container py-4 flex items-center justify-end">
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm font-semibold text-accent">Blogs</Link>
+            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Travel</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
             <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>

@@ -50,7 +50,7 @@ export default function Home() {
             <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm hover:text-accent transition-colors cursor-pointer">Home</a>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
-            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Travel</Link>
+            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Life@OOF</Link>
             <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
             <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>

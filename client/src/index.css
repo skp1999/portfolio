@@ -178,6 +178,11 @@
     display: none;
   }
 
+  .travel-map .travel-plane {
+    background: transparent !important;
+    border: 0 !important;
+  }
+
   /**
    * Custom container utility that centers content and adds responsive padding.
    *

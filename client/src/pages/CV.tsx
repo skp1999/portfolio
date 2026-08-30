@@ -15,7 +15,7 @@ export default function CV() {
             <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
-            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Travel</Link>
+            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Life@OOF</Link>
             <Link href="/cv" className="text-sm font-semibold text-accent">CV</Link>
             <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
           </div>

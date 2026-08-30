@@ -83,11 +83,11 @@ export default function Teaching() {
               <span className="text-white font-bold text-sm">Saurabh Kumar Pandey</span>
             </div>
           </a>
-          <div className="flex items-center gap-6">
-            <a href="/" className="text-sm hover:text-accent transition-colors">Home</a>
-            <a href="/publications" className="text-sm hover:text-accent transition-colors">Publications</a>
-            <a href="/talks" className="text-sm hover:text-accent transition-colors">Talks</a>
-            <a href="/teaching" className="text-sm font-semibold text-accent">Teaching</a>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <a href="/" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Home</a>
+            <a href="/publications" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Publications</a>
+            <a href="/talks" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Talks</a>
+            <a href="/teaching" className="px-4 py-1.5 rounded-full border border-accent bg-accent text-sm font-semibold text-accent-foreground transition-colors">Teaching</a>
           </div>
         </nav>
       </header>

@@ -65,13 +65,13 @@ export default function Home() {
       {/* Sticky translucent navigation */}
       <header className="sticky top-0 z-50 bg-background/60 backdrop-blur-md">
         <nav className="container py-3 flex items-center justify-center">
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm hover:text-accent transition-colors cursor-pointer">Home</a>
-            <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
-            <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
-            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Life@OOF</Link>
-            <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
-            <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="px-4 py-1.5 rounded-full border border-accent bg-accent text-sm font-semibold text-accent-foreground transition-colors cursor-pointer">Home</a>
+            <Link href="/publications" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Publications</Link>
+            <Link href="/blogs" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Blogs</Link>
+            <Link href="/travel" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Life@OOF</Link>
+            <Link href="/cv" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">CV</Link>
+            <a href="#contact" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Contact</a>
           </div>
         </nav>
       </header>

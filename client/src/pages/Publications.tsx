@@ -410,14 +410,14 @@ export default function Publications() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <nav className="container py-4 flex items-center justify-end">
-          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
-            <Link href="/" className="text-sm hover:text-accent transition-colors">Home</Link>
-            <Link href="/publications" className="text-sm font-semibold text-accent">Publications</Link>
-            <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
-            <Link href="/travel" className="text-sm hover:text-accent transition-colors">Life@OOF</Link>
-            <Link href="/cv" className="text-sm hover:text-accent transition-colors">CV</Link>
-            <a href="#contact" className="text-sm hover:text-accent transition-colors">Contact</a>
+        <nav className="container py-4 flex items-center justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <Link href="/" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Home</Link>
+            <Link href="/publications" className="px-4 py-1.5 rounded-full border border-accent bg-accent text-sm font-semibold text-accent-foreground transition-colors">Publications</Link>
+            <Link href="/blogs" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Blogs</Link>
+            <Link href="/travel" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Life@OOF</Link>
+            <Link href="/cv" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">CV</Link>
+            <a href="#contact" className="px-4 py-1.5 rounded-full border border-accent/30 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground transition-colors">Contact</a>
           </div>
         </nav>
       </header>

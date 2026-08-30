@@ -12,6 +12,16 @@ import { ArrowRight, BookOpen, Award, Mail, Calendar, Linkedin, Twitter, Github,
 import { useState } from "react";
 import { Link } from "wouter";
 
+const tickerNews = [
+  { date: "Aug 2026", text: "📄 Paper accepted at EMNLP 2026 (FBHM)", targetIndex: 0 },
+  { date: "Jul 2026", text: "🏆 Outstanding Paper Award at C3NLP@ACL 2026", targetIndex: 2 },
+  { date: "Jul 2026", text: "✈️ Attending and presenting at ACL 2026", targetIndex: 4 },
+  { date: "May 2026", text: "📄 Paper accepted at ICML 2026", targetIndex: 5 },
+  { date: "May 2026", text: "📄 Paper accepted at C3NLP@ACL 2026", targetIndex: 6 },
+  { date: "Oct 2025", text: "🚀 Joined Microsoft as a Senior Applied Scientist", targetIndex: 9 },
+  { date: "May 2025", text: "🏆 SAC Theme Award at NAACL 2025", targetIndex: 11 },
+];
+
 const renderNewsTitle = (title: string) => {
   const isMicrosoftJoining = title.includes("Joined Microsoft as a Senior Applied Scientist");
   const emphasizedText = isMicrosoftJoining
@@ -40,13 +50,22 @@ const renderNewsTitle = (title: string) => {
 };
 
 export default function Home() {
+  const [highlightedNews, setHighlightedNews] = useState<number | null>(null);
+
+  const scrollToNews = (index: number) => {
+    const el = document.getElementById(`news-item-${index}`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    setHighlightedNews(index);
+    window.setTimeout(() => setHighlightedNews((cur) => (cur === index ? null : cur)), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <nav className="container py-4 flex items-center justify-end">
-          <div className="flex flex-wrap items-center justify-end gap-4 sm:gap-6">
+      {/* Sticky translucent navigation */}
+      <header className="sticky top-0 z-50 bg-background/60 backdrop-blur-md">
+        <nav className="container py-3 flex items-center justify-center">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-sm hover:text-accent transition-colors cursor-pointer">Home</a>
             <Link href="/publications" className="text-sm hover:text-accent transition-colors">Publications</Link>
             <Link href="/blogs" className="text-sm hover:text-accent transition-colors">Blogs</Link>
@@ -67,8 +86,28 @@ export default function Home() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent"></div>
-        
-        <div className="container relative py-10 sm:py-14">
+
+        <div className="container relative pt-4 pb-10 sm:pb-14">
+          {/* Running News Ticker */}
+          <div className="news-ticker mb-6 flex items-stretch rounded-xl border border-border bg-card/60 backdrop-blur-sm overflow-hidden">
+            <div className="relative flex-1 overflow-hidden">
+              <div className="news-ticker__track py-2">
+                {[...tickerNews, ...tickerNews].map((item, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => scrollToNews(item.targetIndex)}
+                    className="inline-flex items-center text-sm text-foreground hover:text-accent transition-colors cursor-pointer"
+                  >
+                    <span className="mx-3 text-accent" aria-hidden="true">◆</span>
+                    <span className="font-semibold text-accent mr-2">{item.date}</span>
+                    {item.text}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-4 gap-8 items-stretch">
             {/* Sidebar */}
             <div className="md:col-span-1">
@@ -211,9 +250,10 @@ export default function Home() {
                   ].map((news, idx, arr) => (
                     <div 
                       key={idx} 
-                      className={`flex items-start gap-4 px-4 py-4 hover:bg-accent/10 transition-all cursor-default ${
-                        idx !== arr.length - 1 ? 'border-b border-border/50' : ''
-                      }`}
+                      id={`news-item-${idx}`}
+                      className={`flex items-start gap-4 px-4 py-4 scroll-mt-2 transition-all cursor-default ${
+                        highlightedNews === idx ? 'bg-accent/15 ring-1 ring-accent/40' : 'hover:bg-accent/10'
+                      } ${idx !== arr.length - 1 ? 'border-b border-border/50' : ''}`}
                     >
                       <span className="text-xs font-semibold text-accent whitespace-nowrap min-w-[70px] pt-0.5">{news.date}</span>
                       <div className="text-sm text-foreground leading-relaxed">

@@ -139,6 +139,33 @@
 }
 
 @layer components {
+  .news-ticker__track {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    will-change: transform;
+    animation: news-ticker-scroll 40s linear infinite;
+  }
+
+  .news-ticker:hover .news-ticker__track {
+    animation-play-state: paused;
+  }
+
+  @keyframes news-ticker-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .news-ticker__track {
+      animation: none;
+    }
+  }
+
   .travel-map .leaflet-tile-pane {
     opacity: 0.92;
   }

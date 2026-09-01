@@ -27,14 +27,14 @@ export default function CV() {
         <div className="mb-6">
           <h1 className="text-3xl font-bold mb-2">Curriculum Vitae</h1>
           <p className="text-muted-foreground">
-            View or <a href={`${import.meta.env.BASE_URL}cv.pdf`} download className="text-accent hover:underline">download</a> my CV.
+            View or <a href={`${import.meta.env.BASE_URL}cv.pdf?v=20260902`} download className="text-accent hover:underline">download</a> my CV.
           </p>
         </div>
         
         {/* CV iframe - fits full width, native zoom supported */}
         <div className="w-full h-[calc(100vh-200px)] rounded-lg border border-border overflow-hidden">
           <iframe
-            src={`${import.meta.env.BASE_URL}cv.pdf`}
+            src={`${import.meta.env.BASE_URL}cv.pdf?v=20260902`}
             className="w-full h-full"
             title="Saurabh Kumar Pandey - CV"
           />

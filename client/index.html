@@ -22,7 +22,7 @@
         const path = params.get('p');
         if (path) {
           // Replace URL with the full path including base
-          const base = '/research_portfolio';
+          const base = '/portfolio';
           const fullPath = base + path;
           window.history.replaceState(null, '', fullPath);
         }

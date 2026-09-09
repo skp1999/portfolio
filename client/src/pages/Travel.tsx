@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Camera, MapPin, Trophy } from "lucide-react";
+import { Camera, Linkedin, Mail, MapPin, Trophy, Twitter } from "lucide-react";
 import { Link } from "wouter";
 
 const HIGHLIGHT = "#0891b2";
@@ -32,10 +32,10 @@ const cityNames: Record<string, string> = {
   MIA: "Miami", ABQ: "Albuquerque", DEN: "Denver", NYC: "New York",
 };
 
-const flights: Array<[string, string]> = [
-  ["IND", "AUH"], ["IND", "SIN"], ["IND", "DOH"], ["IND", "TYO"], ["IND", "HKG"],
-  ["IND", "SAN"], ["IND", "MIA"], ["IND", "ABQ"], ["IND", "DEN"], ["IND", "SEA"],
-  ["IND", "SFO"], ["IND", "VN"], ["NYC", "AUH"],
+const flights: Array<[string, string, number]> = [
+  ["IND", "AUH", 1.0], ["IND", "SIN", -1.1], ["IND", "DOH", -0.5], ["IND", "TYO", 1.2], ["IND", "HKG", 0.55],
+  ["IND", "SAN", -0.5], ["IND", "MIA", -1.3], ["IND", "ABQ", 0.7], ["IND", "DEN", 1.25], ["IND", "SEA", 1.6],
+  ["IND", "SFO", -1.05], ["IND", "VN", 0.2], ["NYC", "AUH", 0.9],
 ];
 
 const galleryPlaces = [
@@ -47,11 +47,18 @@ const galleryPlaces = [
   { city: "Hong Kong", country: "China", note: "Layover", image: "https://images.unsplash.com/photo-1506970845246-18f21d533b20?auto=format&fit=crop&w=1200&q=85" },
 ];
 
-const cricketGallery = [
-  { title: "Match days", note: "Watching the game, wherever I am", image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1200&q=85" },
-  { title: "Weekend cricket", note: "A bat, a ball, and one more over", image: "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?auto=format&fit=crop&w=1200&q=85" },
-  { title: "The scorebook", note: "Scores and match notes will live here", image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=85" },
+const cricketMatches = [
+  { date: "6 Sep 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 5 wickets", won: true, innings: [{ team: "Bengaluru Bulls", score: "184/7", mine: false }, { team: "(UCC) Pluto", score: "189/5", mine: true }], bat: "27* (19) · 3×4 · 1×6", bowl: null, field: null, url: "https://cricheroes.com/scorecard/26912640/ucc-whatever-it-takes-s8/bengaluru-bulls-vs-ucc-pluto/summary" },
+  { date: "29 Aug 2026", tournament: "Nexus Premier League · S12", result: "United CC lost by 54 runs", won: false, innings: [{ team: "PiggyRide", score: "204/9", mine: false }, { team: "(UCC) United CC", score: "150", mine: true }], bat: "26 (25) · 2×4", bowl: null, field: null, url: "https://cricheroes.com/scorecard/26138885/npl-nexus-premier-league.-season-12/piggyride-vs-ucc-united-cricket-club/summary" },
+  { date: "2 Aug 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 6 wickets", won: true, innings: [{ team: "Bengaluru Bulls", score: "117", mine: false }, { team: "(UCC) Pluto", score: "118/4", mine: true }], bat: null, bowl: "4-26-0-2", field: null, url: "https://cricheroes.com/scorecard/26351653/ucc-whatever-it-takes-s8/bengaluru-bulls-vs-ucc-pluto/summary" },
+  { date: "6 Jun 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 94 runs", won: true, innings: [{ team: "(UCC) Pluto", score: "268/6", mine: true }, { team: "Royal Rangers", score: "175", mine: false }], bat: null, bowl: "1.4-16-0-2", field: null, url: "https://cricheroes.com/scorecard/25191201/ucc-whatever-it-takes-s8/ucc-pluto-vs-royal-rangers-bengaluru/summary" },
+  { date: "28 May 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 42 runs", won: true, innings: [{ team: "(UCC) Pluto", score: "208", mine: true }, { team: "se7en Force", score: "166/9", mine: false }], bat: "3 (2)", bowl: "2-10-0-0", field: "2 ct", url: "https://cricheroes.com/scorecard/25057081/ucc-whatever-it-takes-s8/ucc-pluto-vs-se7en-force/summary" },
+  { date: "16 May 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 25 runs", won: true, innings: [{ team: "(UCC) Pluto", score: "220/5", mine: true }, { team: "Spartans XI", score: "195/9", mine: false }], bat: null, bowl: "3.5-30-0-0", field: "1 ct", url: "https://cricheroes.com/scorecard/24738128/ucc-whatever-it-takes-s8/ucc-pluto-vs-spartans-xi/summary" },
+  { date: "9 May 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 7 wickets", won: true, innings: [{ team: "Believers CC", score: "224/9", mine: false }, { team: "(UCC) Pluto", score: "225/3", mine: true }], bat: "2* (1)", bowl: null, field: null, url: "https://cricheroes.com/scorecard/24547612/ucc-whatever-it-takes-s8/believers-cricket-club-vs-ucc-pluto/summary" },
+  { date: "25 Apr 2026", tournament: "UCC Whatever It Takes · S8", result: "Pluto won by 19 runs", won: true, innings: [{ team: "(UCC) Pluto", score: "233/9", mine: true }, { team: "CricCoders", score: "214", mine: false }], bat: "14 (18) · 2×4", bowl: null, field: null, url: "https://cricheroes.com/scorecard/24138979/ucc-whatever-it-takes-s8/ucc-pluto-vs-criccoders/summary" },
 ];
+
+const cricketProfileUrl = "https://cricheroes.com/player-profile/44533767/saurabh-kumar-pandey/matches";
 
 declare global {
   interface Window { L?: any }
@@ -83,9 +90,9 @@ function loadLeaflet() {
   return leafletPromise;
 }
 
-function flightCurve(start: [number, number], end: [number, number]) {
+function flightCurve(start: [number, number], end: [number, number], bend = 1) {
   const longitudeDistance = end[1] - start[1];
-  const bow = Math.min(24, Math.abs(longitudeDistance) * 0.16 + 3);
+  const bow = Math.min(32, Math.abs(longitudeDistance) * 0.2 + 7) * bend;
   const control: [number, number] = [(start[0] + end[0]) / 2 + bow, (start[1] + end[1]) / 2];
 
   return Array.from({ length: 41 }, (_, index) => {
@@ -149,7 +156,7 @@ export default function Travel() {
       }
 
       // Faint destination dots so the routes read as distinct arrivals.
-      new Set(flights.flat()).forEach((code) => {
+      new Set(flights.flatMap(([from, to]) => [from, to])).forEach((code) => {
         if (code === "IND") return;
         leaflet.circleMarker(flightCities[code], {
           radius: 2.4, weight: 0, fillColor: "#9aa7b6", fillOpacity: 0.9, interactive: false,
@@ -157,8 +164,8 @@ export default function Travel() {
       });
 
       // Flight arcs with a hover state and a small plane showing direction of travel.
-      flights.forEach(([from, to]) => {
-        const curve = flightCurve(flightCities[from], flightCities[to]);
+      flights.forEach(([from, to, bend]) => {
+        const curve = flightCurve(flightCities[from], flightCities[to], bend);
         const line = leaflet.polyline(curve, {
           color: "#c4cdd9", weight: 1.2, opacity: 0.95, lineCap: "round", lineJoin: "round", interactive: false,
         }).addTo(map);
@@ -216,9 +223,10 @@ export default function Travel() {
 
       routeApi.current = { highlight, reset };
       const routeBounds = leaflet.latLngBounds(
-        flights.flatMap(([from, to]) => flightCurve(flightCities[from], flightCities[to])),
+        flights.flatMap(([from, to, bend]) => flightCurve(flightCities[from], flightCities[to], bend)),
       );
-      map.fitBounds(routeBounds, { padding: [16, 24] });
+      // Center on the routes with a little breathing room on every side.
+      map.fitBounds(routeBounds.pad(0.18), { padding: [10, 10] });
     }).catch(() => {
       if (mapContainer.current) mapContainer.current.textContent = "The map could not be loaded.";
     });
@@ -283,22 +291,70 @@ export default function Travel() {
           <div className="container">
             <div className="mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
               <div><p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#e9a27f]"><Trophy className="h-4 w-4" aria-hidden="true" />Cricket life</p><h2 className="mt-3 text-3xl font-bold sm:text-4xl">Beyond the boundary</h2></div>
-              <p className="flex items-center gap-2 text-sm text-white/60"><MapPin className="h-4 w-4" aria-hidden="true" />Matches, memories, and scores</p>
+              <a href={cricketProfileUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-[#e9a27f]"><MapPin className="h-4 w-4" aria-hidden="true" />Recent matches on CricHeroes</a>
             </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              {cricketGallery.map((item) => (
-                <article key={item.title} className="group border border-white/15 bg-white/5">
-                  <div className="aspect-[4/3] overflow-hidden"><img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" /></div>
-                  <div className="p-5"><h3 className="text-xl font-bold">{item.title}</h3><p className="mt-2 text-sm text-white/60">{item.note}</p></div>
-                </article>
+            <p className="mb-5 text-xs text-white/45">🏏 Batting: Runs (Balls) · 4s · 6s &nbsp;·&nbsp; 🔴 Bowling: Overs–Runs–Maidens–Wickets &nbsp;·&nbsp; 🧤 Catches</p>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {cricketMatches.map((m) => (
+                <div
+                  key={m.url}
+                  className="flex flex-col rounded-lg border border-white/15 bg-white/5 p-4"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] text-white/45">{m.date}</span>
+                    <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${m.won ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"}`}>
+                      <span className={`h-1.5 w-1.5 rounded-full ${m.won ? "bg-emerald-400" : "bg-rose-400"}`} aria-hidden="true" />
+                      {m.won ? "Won" : "Lost"}
+                    </span>
+                  </div>
+                  <div className="mt-2.5 space-y-0.5">
+                    {m.innings.map((inn) => (
+                      <div key={inn.team} className={`flex items-center justify-between text-[13px] ${inn.mine ? "font-bold text-white" : "text-white/60"}`}>
+                        <span className="truncate pr-2">{inn.team}</span>
+                        <span className="shrink-0 tabular-nums">{inn.score}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-white/45">{m.result}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                    {m.bat && <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-medium text-white/85"><span aria-hidden="true">🏏</span>{m.bat}</span>}
+                    {m.bowl && <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-medium text-white/85"><span aria-hidden="true">🔴</span>{m.bowl}</span>}
+                    {m.field && <span className="inline-flex items-center gap-1 rounded-md bg-white/10 px-2 py-0.5 text-[11px] font-medium text-white/85"><span aria-hidden="true">🧤</span>{m.field}</span>}
+                  </div>
+                  <div className="mt-auto flex justify-end pt-3">
+                    <a href={m.url} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1 text-xs font-semibold text-[#e9a27f] hover:underline">Scorecard <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span></a>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </section>
       </main>
 
-      <section id="contact" className="scroll-mt-20 bg-muted/30 py-6 sm:py-8"><div className="container text-center"><a href="mailto:saurabh2000.iitkgp@gmail.com" className="text-sm font-semibold text-accent hover:underline">Get in touch</a></div></section>
-      <footer className="border-t border-border bg-background"><div className="container py-6"><p className="text-center text-sm text-muted-foreground">© 2026 Saurabh Kumar Pandey. All rights reserved.</p></div></footer>
+      <section id="contact" className="py-6 sm:py-8 bg-gradient-to-br from-primary/5 via-background to-secondary/5 scroll-mt-20">
+        <div className="container max-w-xl">
+          <div className="text-center mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">Get In Touch</h2>
+            <p className="text-muted-foreground sm:whitespace-nowrap">Interested in collaborating or discussing research opportunities?</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="mailto:saurabh2000.iitkgp@gmail.com" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Mail className="w-4 h-4 text-accent" />
+              Email
+            </a>
+            <a href="https://www.linkedin.com/in/skp1999/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Linkedin className="w-4 h-4 text-accent" />
+              LinkedIn
+            </a>
+            <a href="https://x.com/skp_2709" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-accent transition-colors">
+              <Twitter className="w-4 h-4 text-accent" />
+              Twitter
+            </a>
+          </div>
+        </div>
+      </section>
+      <footer className="border-t border-border bg-background"><div className="container py-6"><p className="text-center text-sm text-muted-foreground">© 2025 Saurabh Kumar Pandey. All rights reserved.</p></div></footer>
     </div>
   );
 }

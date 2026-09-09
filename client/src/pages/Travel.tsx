@@ -268,7 +268,7 @@ export default function Travel() {
               </ul>
               <p className="mt-4 text-xs text-muted-foreground">Hover a country or a flight path to see the details.</p>
             </div>
-            <div ref={mapContainer} style={{ backgroundColor: "#d6ebf5" }} className="travel-map aspect-[2/1] max-h-[500px] w-full overflow-hidden rounded-xl border border-[#d9ddd3] shadow-sm" aria-label="Map of countries I have travelled to" />
+            <div ref={mapContainer} style={{ backgroundColor: "#d6ebf5" }} className="travel-map isolate aspect-[2/1] max-h-[500px] w-full overflow-hidden rounded-xl border border-[#d9ddd3] shadow-sm" aria-label="Map of countries I have travelled to" />
           </div>
         </section>
 

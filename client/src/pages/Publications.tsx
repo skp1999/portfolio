@@ -399,7 +399,7 @@ export default function Publications() {
   ).size;
   const publicationStats = [
     { value: publications.length, label: "Peer-reviewed Papers" },
-    { value: "190+", label: "Citations" },
+    { value: "200+", label: "Citations" },
     { value: new Set(publications.map(publication => publication.conference)).size, label: "Venues" },
     { value: new Set(publications.map(publication => publication.domain)).size, label: "Research Areas" },
     { value: publications.filter(publication => "award" in publication && publication.award).length, label: "Awards" },

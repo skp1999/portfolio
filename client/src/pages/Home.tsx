@@ -13,13 +13,14 @@ import { useState } from "react";
 import { Link } from "wouter";
 
 const tickerNews = [
-  { date: "Aug 2026", text: "📄 Paper accepted at EMNLP 2026 (FBHM)", targetIndex: 0 },
-  { date: "Jul 2026", text: "🏆 Outstanding Paper Award at C3NLP@ACL 2026", targetIndex: 2 },
-  { date: "Jul 2026", text: "✈️ Attending and presenting at ACL 2026", targetIndex: 4 },
-  { date: "May 2026", text: "📄 Paper accepted at ICML 2026", targetIndex: 5 },
-  { date: "May 2026", text: "📄 Paper accepted at C3NLP@ACL 2026", targetIndex: 6 },
-  { date: "Oct 2025", text: "🚀 Joined Microsoft as a Senior Applied Scientist", targetIndex: 9 },
-  { date: "May 2025", text: "🏆 SAC Theme Award at NAACL 2025", targetIndex: 11 },
+  { date: "Sep 2026", text: "🎉 Crossed 200+ citations", targetIndex: 0 },
+  { date: "Aug 2026", text: "📄 Paper accepted at EMNLP 2026 (FBHM)", targetIndex: 1 },
+  { date: "Jul 2026", text: "🏆 Outstanding Paper Award at C3NLP@ACL 2026", targetIndex: 3 },
+  { date: "Jul 2026", text: "✈️ Attending and presenting at ACL 2026", targetIndex: 5 },
+  { date: "May 2026", text: "📄 Paper accepted at ICML 2026", targetIndex: 6 },
+  { date: "May 2026", text: "📄 Paper accepted at C3NLP@ACL 2026", targetIndex: 7 },
+  { date: "Oct 2025", text: "🚀 Joined Microsoft as a Senior Applied Scientist", targetIndex: 10 },
+  { date: "May 2025", text: "🏆 SAC Theme Award at NAACL 2025", targetIndex: 12 },
 ];
 
 const renderNewsTitle = (title: string) => {
@@ -217,6 +218,7 @@ export default function Home() {
               <div className="relative border border-border rounded-xl bg-card/30 overflow-hidden h-[530px]">
                 <div className="h-full overflow-y-auto" style={{ scrollbarWidth: 'thin', scrollbarColor: '#888 transparent' }}>
                   {[
+                    { date: "Sep 2026", title: "🎉 Crossed 200+ citations! Grateful to all my collaborators, mentors, and advisors for their support along the way", papers: null },
                     { date: "Aug 2026", title: "📄 Paper accepted at EMNLP 2026:", papers: [{ name: "FBHM: Functional Benchmarking and Steering of VLMs for Hateful Meme Detection", url: "https://arxiv.org/abs/2605.31349" }] },
                     { date: "Jul 2026", title: "✈️ Visiting Microsoft Redmond HQ for a business trip", papers: null },
                     { date: "Jul 2026", title: "🏆 Received Outstanding Paper Award for our paper at C3NLP@ACL 2026", papers: null },
